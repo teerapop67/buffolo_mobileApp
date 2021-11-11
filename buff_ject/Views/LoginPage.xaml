@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="buff_ject.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout Padding="30" BackgroundColor="#0b121d">
+            <Label
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Authentication"
+                TextColor="#fff" />
+            <Frame Margin="20" BackgroundColor="#0b121d">
+                <Image
+                    HeightRequest="150"
+                    Source="logo.png"
+                    WidthRequest="150" />
+            </Frame>
+
+            <Entry
+                x:Name="usernameAuth"
+                Margin="10"
+                Background="#333333"
+                CharacterSpacing="2"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                Placeholder="Username"
+                PlaceholderColor="Olive"
+                TextColor="#fff" />
+            <Entry
+                x:Name="passwordAuth"
+                Margin="10"
+                Background="#333333"
+                CharacterSpacing="2"
+                ClearButtonVisibility="WhileEditing"
+                FontSize="Medium"
+                HorizontalTextAlignment="Center"
+                IsPassword="true"
+                Placeholder="Password"
+                PlaceholderColor="Olive"
+                TextColor="#fff" />
+
+            <Button
+                x:Name="Login"
+                Margin="50,20,30,20"
+                Background="transparent"
+                BorderColor="#EAB410"
+                BorderWidth="1"
+                Clicked="Login_Clicked"
+                CornerRadius="20"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Login"
+                TextColor="#fff"
+                WidthRequest="150" />
+
+            <Button
+                x:Name="Register"
+                Margin="50,0,30,50"
+                Background="transparent"
+                BorderColor="#EAB410"
+                BorderWidth="1"
+                Clicked="Register_Clicked"
+                CornerRadius="20"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Register"
+                TextColor="#fff"
+                WidthRequest="150" />
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
