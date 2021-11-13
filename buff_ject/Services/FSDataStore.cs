@@ -49,7 +49,15 @@ namespace buff_ject.Services
               .OnceAsync<Profile>()).Select(item => new Profile //สร้างรายการ Object
               {
                   Username = item.Object.Username,
-                  
+                  Password = item.Object.Password,
+                  Email = item.Object.Email,
+                  BuffCoin = item.Object.BuffCoin,
+                  Charactor = item.Object.Charactor,
+                  NameCharactor = item.Object.NameCharactor,
+                  StrUser = item.Object.StrUser,
+                  AgiUser = item.Object.AgiUser,
+                  VitUser = item.Object.VitUser
+
               }).ToList();// คืนค่าแบบกลุ่มออกไป
         }
 

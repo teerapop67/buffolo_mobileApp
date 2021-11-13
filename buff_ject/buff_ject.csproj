@@ -29,4 +29,16 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\SelectCharactorPage.xaml.cs">
+      <DependentUpon>SelectCharactorPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\SelectCharactorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

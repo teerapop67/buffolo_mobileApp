@@ -27,8 +27,14 @@ namespace buff_ject.Views
 
         private async void Login_Clicked(object sender, EventArgs e)
         {
+            //get file img from local
+            //Xamarin.Forms.FileImageSource objFileImageSource = (Xamarin.Forms.FileImageSource)logoImage.Source;
+            //string strFileName = objFileImageSource;
+            //_ = DisplayAlert("Warning", strFileName, "OK");
 
             var items = await DataStore.GetItemAsync(usernameAuth.Text);
+            _ = DisplayAlert("Warning", $"Password: {items.Password} : {items.Username}", "OK");
+
 
             if (items == null)
             {
@@ -37,9 +43,15 @@ namespace buff_ject.Views
                 await Navigation.PushAsync(new RegisterPage());
 
             }
-            else if (items.Username == usernameAuth.Text && passwordAuth.Text == items.Password)
+            else if (items.Username == usernameAuth.Text && items.Password == passwordAuth.Text)
             {
-                _ = DisplayAlert("Welcome", $"Welcome to buff { usernameAuth.Text }", "OK");
+                
+                 _ = DisplayAlert("Welcome", $"Welcome to buff { usernameAuth.Text }", "OK");
+                 await Navigation.PushAsync(new SelectCharactorPage());          
+            }
+            else
+            {
+                await DisplayAlert("Warning", $"Your {usernameAuth.Text} or {passwordAuth.Text} WRONG!!", "OK");
             }
 
             

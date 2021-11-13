@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="buff_ject.Views.SelectCharactorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="20"
+            Background="#0b121d"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <Label
+                Margin="30"
+                FontAttributes="bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Select Charactor"
+                TextColor="#fff" />
+            <CollectionView x:Name="pCharactor" Margin="20">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="400, 100" VerticalOptions="Center">
+                            <Image Margin="10,10,10,10" Source="{Binding Charactor}">
+                                <Image.GestureRecognizers>
+
+                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" />
+
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label
+                                Grid.Row="1"
+                                FontAttributes="Bold"
+                                FontSize="Medium"
+                                HorizontalOptions="Center"
+                                Text="{Binding NameCharactor}"
+                                TextColor="#eab410 " />
+                        </Grid>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button
+                x:Name="btnSelect"
+                BackgroundColor="#0B121D"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                CornerRadius="50"
+                Text="Select"
+                TextColor="#B2BBCB"
+                VerticalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

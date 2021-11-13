@@ -83,7 +83,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\charactor3.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\buff_ject\buff_ject.csproj">
       <Project>{6ED36317-72D5-491D-8483-C5287328B956}</Project>
@@ -92,6 +94,15 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\charactor4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\charactor1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\charactor2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

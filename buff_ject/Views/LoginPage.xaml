@@ -13,6 +13,7 @@
                 TextColor="#fff" />
             <Frame Margin="20" BackgroundColor="#0b121d">
                 <Image
+                    x:Name="logoImage"
                     HeightRequest="150"
                     Source="logo.png"
                     WidthRequest="150" />
@@ -33,7 +34,6 @@
                 Margin="10"
                 Background="#333333"
                 CharacterSpacing="2"
-                ClearButtonVisibility="WhileEditing"
                 FontSize="Medium"
                 HorizontalTextAlignment="Center"
                 IsPassword="true"
