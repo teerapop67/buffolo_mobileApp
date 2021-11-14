@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace buff_ject.Services
 {
-    public class FSDataStore : IDataStore<Profile>
+    public class FSDataStoreCollection : IDataStore<Collection>
     {
         FirebaseClient firebase =
             new FirebaseClient("https://realtimedatabasedemo-8e759-default-rtdb.asia-southeast1.firebasedatabase.app/");
 
         //เพิ่มข้อมูลไปที่ Firebase Realtime DB
-        public async Task<bool> AddItemAsync(Profile item)
+        public async Task<bool> AddItemAsync(Collection item)
         {
             await firebase
-              .Child("Items") //สร้าง root ที่ชื่อว่า item เก็บ property
+              .Child("CollectionItem") //สร้าง root ที่ชื่อว่า item เก็บ property
               .PostAsync(item);
 
             return true;
@@ -29,48 +29,41 @@ namespace buff_ject.Services
         public async Task<bool> DeleteItemAsync(string username)
         {
             var toDeletePerson = (await firebase
-              .Child("Items") // ลบ item ออกจากฐานข้อมูล ตามไอดีที่กำหนด
-              .OnceAsync<Profile>()).Where(a => a.Object.Username == username).FirstOrDefault();
-            await firebase.Child("Items").Child(toDeletePerson.Key).DeleteAsync();
+              .Child("CollectionItem") // ลบ item ออกจากฐานข้อมูล ตามไอดีที่กำหนด
+              .OnceAsync<Collection>()).Where(a => a.Object.Username == username).FirstOrDefault();
+            await firebase.Child("CollectionItem").Child(toDeletePerson.Key).DeleteAsync();
             return true;
         }
 
-        public async Task<Profile> GetItemAsync(string username)
+        public async Task<Collection> GetItemAsync(string username)
         {
             var item = await GetItemsAsync(); //ดึงข้อมูลทั้งหมดมา
-            Console.WriteLine("CHECK", item);
             return item.Where(a => a.Username == username).FirstOrDefault(); // ส่งค่ากลับเฉพาะไอดีที่ตรงกัน
         }
 
-        public async Task<IEnumerable<Profile>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Collection>> GetItemsAsync(bool forceRefresh = false)
         {
             return (await firebase
-              .Child("Items") //ดึงข้อมูลทั้งหมดจาก Firebase มา
-              .OnceAsync<Profile>()).Select(item => new Profile //สร้างรายการ Object
+              .Child("Collection") //ดึงข้อมูลทั้งหมดจาก Firebase มา
+              .OnceAsync<Collection>()).Select(item => new Collection //สร้างรายการ Object
               {
                   Username = item.Object.Username,
-                  Password = item.Object.Password,
-                  Email = item.Object.Email,
-                  BuffCoin = item.Object.BuffCoin,
-                  CharactorURL = item.Object.CharactorURL,
-                  NameCharactor = item.Object.NameCharactor,
-                  StrUser = item.Object.StrUser,
-                  AgiUser = item.Object.AgiUser,
-                  VitUser = item.Object.VitUser
+                  ItemName = item.Object.ItemName,
+                  ItemImage = item.Object.ItemImage,
 
               }).ToList();// คืนค่าแบบกลุ่มออกไป
         }
 
-        public async Task<bool> UpdateItemAsync(Profile item)
+        public async Task<bool> UpdateItemAsync(Collection item)
         {
             var toUpdateProfile = (await firebase
-              .Child("Items")
-              .OnceAsync<Profile>())
+              .Child("CollectionItem")
+              .OnceAsync<Collection>())
               .Where(a => a.Object.Username == item.Username)
               .FirstOrDefault();
 
             await firebase
-              .Child("Items")
+              .Child("CollectionItem")
               .Child(toUpdateProfile.Key)
               .PutAsync(item);
 

@@ -11,6 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\FontAwesome5BrandsRegular400.otf" />
+    <None Remove="Fonts\FontAwesome5FreeRegular400.otf" />
+    <None Remove="Fonts\FontAwesome5FreeSolid900.otf" />
     <None Remove="Fonts\moregular.otf" />
     <None Remove="Fonts\mrregular.otf" />
     <None Remove="Fonts\msregular.otf" />
@@ -18,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Fonts\FontAwesome5BrandsRegular400.otf" />
+    <EmbeddedResource Include="Fonts\FontAwesome5FreeRegular400.otf" />
+    <EmbeddedResource Include="Fonts\FontAwesome5FreeSolid900.otf" />
     <EmbeddedResource Include="Fonts\moregular.otf" />
     <EmbeddedResource Include="Fonts\mrregular.otf" />
     <EmbeddedResource Include="Fonts\msregular.otf" />

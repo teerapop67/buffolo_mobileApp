@@ -7,6 +7,8 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("msregular.otf", Alias = "msregular")]
 [assembly: ExportFont("moregular.otf", Alias = "moregular")]
 [assembly: ExportFont("mrregular.otf", Alias = "mrregular")]
+[assembly: ExportFont("FontAwesome5FreeRegular400.otf", Alias = "FontAwesome5Regular")]
+
 
 namespace buff_ject
 {
@@ -14,7 +16,7 @@ namespace buff_ject
     {
         public App()
         {
-            DependencyService.Register<IDataStore<buff_ject.Models.Profile>, FSDataStore>();
+            DependencyService.Register<IDataStore<Models.Profile>, FSDataStore>();
 
             MainPage = new NavigationPage(new Views.LoginPage());
         }

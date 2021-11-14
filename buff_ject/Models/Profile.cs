@@ -10,7 +10,7 @@ namespace buff_ject.Models
         public string Password { get; set; }
         public string Email { get; set; }
         public int BuffCoin { get; set; }
-        public ImageSource Charactor { get; set; }
+        public string CharactorURL { get; set; }
         public string NameCharactor { get; set; }
         public int StrUser { get; set; }
         public int VitUser { get; set; }

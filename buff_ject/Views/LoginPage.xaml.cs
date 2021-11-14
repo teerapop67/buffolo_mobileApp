@@ -16,9 +16,10 @@ namespace buff_ject.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
-        public IDataStore<Profile> DataStore => DependencyService.Get<IDataStore<Profile>>();
         public ObservableCollection<Profile> Profile { get; set; }
-        public string usernameCopy;
+        public static string SetUsername { get; set; }
+        public static string SetPassword { get; set; }
+
 
         public LoginPage()
         {
@@ -32,22 +33,30 @@ namespace buff_ject.Views
             //string strFileName = objFileImageSource;
             //_ = DisplayAlert("Warning", strFileName, "OK");
 
-            var items = await DataStore.GetItemAsync(usernameAuth.Text);
-            _ = DisplayAlert("Warning", $"Password: {items.Password} : {items.Username}", "OK");
+            var items = await BaseViewModel.DataStore.GetItemAsync(usernameAuth.Text);
 
 
             if (items == null)
             {
                 _ = DisplayAlert("Warning", "Please Register first", "OK");
 
-                await Navigation.PushAsync(new RegisterPage());
 
             }
             else if (items.Username == usernameAuth.Text && items.Password == passwordAuth.Text)
             {
                 
                  _ = DisplayAlert("Welcome", $"Welcome to buff { usernameAuth.Text }", "OK");
-                 await Navigation.PushAsync(new SelectCharactorPage());          
+                SetUsername = usernameAuth.Text;
+                SetPassword = passwordAuth.Text;
+                if (items.NameCharactor != null)
+                {
+                    await Navigation.PushAsync(new MarketplacePage());
+                }
+                else
+                {
+                    await Navigation.PushAsync(new SelectCharactorPage());
+
+                }
             }
             else
             {

@@ -17,7 +17,6 @@ namespace buff_ject.Views
         private int IdUer;
         public static string user { get; set; }
 
-        public IDataStore<Profile> DataStore => DependencyService.Get<IDataStore<Profile>>();
         public RegisterPage()
         {
             InitializeComponent();
@@ -36,7 +35,7 @@ namespace buff_ject.Views
 
             user = usernameRegis.Text;
 
-            await DataStore.AddItemAsync(UserAuth);
+            await BaseViewModel.DataStore.AddItemAsync(UserAuth);
 
             await Navigation.PushAsync(new LoginPage());
         }

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="buff_ject.Views.MarketplacePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Content>
+        <StackLayout
+            Padding="15"
+            Background="#0b121d"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Fill">
+            <Button
+                BackgroundColor="#eab410"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                CornerRadius="50"
+                HeightRequest="50"
+                HorizontalOptions="EndAndExpand"
+                Text="O.00 Buff"
+                TextColor="#FFFFFF"
+                WidthRequest="140" />
+            <Label
+                Margin="30"
+                FontSize="Title"
+                HorizontalOptions="Center"
+                Text="Market Place"
+                TextColor="#FFFFFF" />
+            <StackLayout Padding="20">
+                <CollectionView x:Name="Item" ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="2" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                Padding="10"
+                                ColumnDefinitions="Auto , Auto"
+                                RowDefinitions="Auto ,Auto">
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    BackgroundColor="#FFFFFF"
+                                    HeightRequest="130"
+                                    Source="{Binding ItemImage}"
+                                    WidthRequest="150">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Button
+                                    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Margin="10"
+                                    BackgroundColor="#0B121D"
+                                    BorderColor="#EAB410"
+                                    BorderWidth="1.5"
+                                    CornerRadius="50"
+                                    FontAttributes="Bold"
+                                    Text="{Binding ItemPrice}"
+                                    TextColor="#B2BBCB" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using buff_ject.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace buff_ject.Views
     public partial class SelectCharactorPage : ContentPage
     {
         public ObservableCollection<Models.Profile> Chalactors { get; set; }
+        public string SaveUrlCharactor;
+        public string SaveNameCharctor;
+
         public SelectCharactorPage()
         {
             InitializeComponent();
@@ -33,24 +37,24 @@ namespace buff_ject.Views
 
             Chalactors.Add(new Models.Profile()
             {
-                Charactor = "charactor1.jpg",
+                CharactorURL = "charactor1.jpg",
                 NameCharactor = "TAKAMARU"
             });
             Chalactors.Add(new Models.Profile()
             {
-                Charactor = "charactor2.jpg",
+                CharactorURL = "charactor2.jpg",
                 NameCharactor = "SHINDOSI"
 
             });
             Chalactors.Add(new Models.Profile()
             {
-                Charactor = "charactor3.jpg",
+                CharactorURL = "charactor3.jpg",
                 NameCharactor = "TOONKADU",
 
             });
             Chalactors.Add(new Models.Profile()
             {
-                Charactor = "charactor4.jpg",
+                CharactorURL = "charactor4.jpg",
                 NameCharactor = "BENZIKA"
 
             });
@@ -58,12 +62,41 @@ namespace buff_ject.Views
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
+
             var param = ((TappedEventArgs)e).Parameter as Models.Profile;
 
-            Xamarin.Forms.FileImageSource objFileImageSource = (Xamarin.Forms.FileImageSource)param.Charactor;
-            string CharactorURL = objFileImageSource;
-            await DisplayAlert("WANRNB:", $"{param.NameCharactor} : {CharactorURL}", "OK");
+            Xamarin.Forms.FileImageSource objFileImageSource = (Xamarin.Forms.FileImageSource)param.CharactorURL;
+            string CharactorUrl = objFileImageSource;
+            SaveNameCharctor = param.NameCharactor;
+            SaveUrlCharactor = CharactorUrl;
             btnSelect.Text = $"Select: {param.NameCharactor}";
+        }
+
+        private async void btnSelect_Clicked(object sender, EventArgs e)
+        {
+            var selected = await DisplayAlert("Complete:", "Are you sure to select this charactor?", "Yes", "No");
+
+            if(selected)
+            {
+
+                var Getprofile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
+
+                Profile UpdateProfile = new Profile()
+                {
+                    Username = Getprofile.Username,
+                    CharactorURL = SaveUrlCharactor,
+                    NameCharactor = SaveNameCharctor,
+                    Password = Getprofile.Password,
+                    StrUser = 1,
+                    AgiUser = 1,
+                    VitUser = 1,
+                    BuffCoin = 0,
+                    Email = Getprofile.Email,
+                    Id  = Getprofile.Id
+                };
+                await BaseViewModel.DataStore.UpdateItemAsync(UpdateProfile);
+                await Navigation.PushAsync(new MarketplacePage());
+            }
         }
     }
 }

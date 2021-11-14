@@ -1,4 +1,5 @@
-﻿using System;
+﻿using buff_ject.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +14,15 @@ namespace buff_ject
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = this;
+            LoadProfile();
+
+        }
+
+        async void LoadProfile()
+        {
+            var getProfile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
+            UrlProfile.Source = getProfile.CharactorURL;
         }
     }
 }

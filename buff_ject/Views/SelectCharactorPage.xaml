@@ -21,7 +21,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid RowDefinitions="400, 100" VerticalOptions="Center">
-                            <Image Margin="10,10,10,10" Source="{Binding Charactor}">
+                            <Image Margin="10,10,10,10" Source="{Binding CharactorURL}">
                                 <Image.GestureRecognizers>
 
                                     <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped" />
@@ -45,6 +45,7 @@
                 BackgroundColor="#0B121D"
                 BorderColor="#EAB410"
                 BorderWidth="1.5"
+                Clicked="btnSelect_Clicked"
                 CornerRadius="50"
                 Text="Select"
                 TextColor="#B2BBCB"
