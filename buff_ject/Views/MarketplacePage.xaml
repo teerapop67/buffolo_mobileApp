@@ -3,27 +3,47 @@
     x:Class="buff_ject.Views.MarketplacePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#0b121d"
     NavigationPage.HasNavigationBar="false">
 
     <ContentPage.Content>
         <StackLayout
-            Padding="15"
-            Background="#0b121d"
+            Padding="20"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="Fill">
-            <Button
-                BackgroundColor="#eab410"
-                BorderColor="#EAB410"
-                BorderWidth="1.5"
-                CornerRadius="50"
-                HeightRequest="50"
-                HorizontalOptions="EndAndExpand"
-                Text="O.00 Buff"
-                TextColor="#FFFFFF"
-                WidthRequest="140" />
+            <Grid ColumnDefinitions="50, 140*">
+                <Button
+                    x:Name="goBack"
+                    BackgroundColor="Transparent"
+                    Clicked="goBack_Clicked"
+                    FontFamily="PressStart">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="AWF"
+                            Glyph="&#xf0a8;"
+                            Size="30"
+                            Color="#b2bbcb" />
+                    </Button.ImageSource>
+                </Button>
+                <Button
+                    x:Name="totalCoin"
+                    Grid.Column="1"
+                    BackgroundColor="#eab410"
+                    BorderColor="#EAB410"
+                    BorderWidth="1.5"
+                    CornerRadius="50"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HeightRequest="30"
+                    HorizontalOptions="EndAndExpand"
+                    Text="O.00 Buff"
+                    TextColor="#FFFFFF"
+                    WidthRequest="140" />
+            </Grid>
             <Label
                 Margin="30"
-                FontSize="Title"
+                FontFamily="PressStart"
+                FontSize="16"
                 HorizontalOptions="Center"
                 Text="Market Place"
                 TextColor="#FFFFFF" />
@@ -58,6 +78,8 @@
                                     BorderWidth="1.5"
                                     CornerRadius="50"
                                     FontAttributes="Bold"
+                                    FontFamily="PressStart"
+                                    FontSize="10"
                                     Text="{Binding ItemPrice}"
                                     TextColor="#B2BBCB" />
                             </Grid>

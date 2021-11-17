@@ -38,7 +38,6 @@ namespace buff_ject.Services
         public async Task<Profile> GetItemAsync(string username)
         {
             var item = await GetItemsAsync(); //ดึงข้อมูลทั้งหมดมา
-            Console.WriteLine("CHECK", item);
             return item.Where(a => a.Username == username).FirstOrDefault(); // ส่งค่ากลับเฉพาะไอดีที่ตรงกัน
         }
 
@@ -56,7 +55,8 @@ namespace buff_ject.Services
                   NameCharactor = item.Object.NameCharactor,
                   StrUser = item.Object.StrUser,
                   AgiUser = item.Object.AgiUser,
-                  VitUser = item.Object.VitUser
+                  VitUser = item.Object.VitUser,
+                  TotalPower = item.Object.TotalPower
 
               }).ToList();// คืนค่าแบบกลุ่มออกไป
         }

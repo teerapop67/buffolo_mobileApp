@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="buff_ject.MenuPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
+
+    <StackLayout
+        Padding="20"
+        Background="#0b121d"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="Fill">
+        <Grid ColumnDefinitions="50, 140*">
+            <Button BackgroundColor="Transparent" FontFamily="PressStart">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="AWF"
+                        Glyph="&#xf54b;"
+                        Size="30"
+                        Color="#b2bbcb" />
+                </Button.ImageSource>
+            </Button>
+            <Button
+                x:Name="totalCoin"
+                Grid.Column="1"
+                BackgroundColor="#eab410"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                CornerRadius="50"
+                FontFamily="PressStart"
+                FontSize="12"
+                HeightRequest="30"
+                HorizontalOptions="EndAndExpand"
+                TextColor="#FFFFFF"
+                WidthRequest="140" />
+        </Grid>
+
+        <Grid
+            Margin="20,40,10,10"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+
+            </Grid.ColumnDefinitions>
+
+            <Button
+                x:Name="Profile"
+                Grid.Row="1"
+                Margin="10,10,10,10"
+                Padding="30,0,30,0"
+                BackgroundColor="#222222"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                Clicked="Profile_Clicked"
+                CornerRadius="20"
+                FontAttributes="Bold"
+                FontFamily="PressStart"
+                FontSize="12"
+                HeightRequest="70"
+                Text="Profile"
+                TextColor="#FFFFFF"
+                VerticalOptions="End"
+                WidthRequest="300">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="AWF"
+                        Glyph="&#xf4fb;"
+                        Size="40"
+                        Color="#FFFFFF" />
+                </Button.ImageSource>
+            </Button>
+
+            <Button
+                x:Name="Lucky"
+                Grid.Row="2"
+                Margin="10,10,10,10"
+                Padding="30,0,30,0"
+                BackgroundColor="#222222"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                Clicked="Lucky_Clicked"
+                CornerRadius="20"
+                FontAttributes="Bold"
+                FontFamily="PressStart"
+                FontSize="12"
+                HeightRequest="70"
+                Text="Lucky Draw"
+                TextColor="#FFFFFF"
+                WidthRequest="300">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="AWF"
+                        Glyph="&#xf79c;"
+                        Size="40"
+                        Color="#FFFFFF" />
+                </Button.ImageSource>
+            </Button>
+
+            <Button
+                x:Name="Farm"
+                Grid.Row="3"
+                Margin="10,10,10,10"
+                Padding="30,0,30,0"
+                BackgroundColor="#222222"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                Clicked="Farm_Clicked"
+                CornerRadius="20"
+                FontAttributes="Bold"
+                FontFamily="PressStart"
+                FontSize="12"
+                HeightRequest="70"
+                Text="Farm"
+                TextColor="#FFFFFF"
+                WidthRequest="300">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="AWF"
+                        Glyph="&#xf4b9;"
+                        Size="40"
+                        Color="#FFFFFF" />
+                </Button.ImageSource>
+            </Button>
+
+            <Button
+                x:Name="Market"
+                Grid.Row="4"
+                Margin="10,10,10,10"
+                Padding="30,0,30,0"
+                BackgroundColor="#222222"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                Clicked="Market_Clicked"
+                CornerRadius="20"
+                FontAttributes="Bold"
+                FontFamily="PressStart"
+                FontSize="12"
+                HeightRequest="70"
+                Text="Market Place"
+                TextColor="#FFFFFF"
+                WidthRequest="300">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="AWF"
+                        Glyph="&#xf54f;"
+                        Size="40"
+                        Color="#FFFFFF" />
+                </Button.ImageSource>
+            </Button>
+
+            <Button
+                x:Name="Fight"
+                Grid.Row="5"
+                Margin="10,10,10,10"
+                Padding="30,0,30,0"
+                BackgroundColor="#222222"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                Clicked="Fight_Clicked"
+                CornerRadius="20"
+                FontAttributes="Bold"
+                FontFamily="PressStart"
+                FontSize="12"
+                HeightRequest="70"
+                Text="Fight"
+                TextColor="#FFFFFF"
+                WidthRequest="300">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="AWF"
+                        Glyph="&#xf66d;"
+                        Size="40"
+                        Color="#FFFFFF" />
+                </Button.ImageSource>
+            </Button>
+
+
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>

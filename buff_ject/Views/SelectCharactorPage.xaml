@@ -13,7 +13,8 @@
             <Label
                 Margin="30"
                 FontAttributes="bold"
-                FontSize="Large"
+                FontFamily="PressStart"
+                FontSize="16"
                 HorizontalOptions="Center"
                 Text="Select Charactor"
                 TextColor="#fff" />
@@ -31,7 +32,8 @@
                             <Label
                                 Grid.Row="1"
                                 FontAttributes="Bold"
-                                FontSize="Medium"
+                                FontFamily="PressStart"
+                                FontSize="12"
                                 HorizontalOptions="Center"
                                 Text="{Binding NameCharactor}"
                                 TextColor="#eab410 " />
@@ -47,6 +49,8 @@
                 BorderWidth="1.5"
                 Clicked="btnSelect_Clicked"
                 CornerRadius="50"
+                FontFamily="PressStart"
+                FontSize="12"
                 Text="Select"
                 TextColor="#B2BBCB"
                 VerticalOptions="Center" />

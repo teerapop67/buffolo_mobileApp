@@ -19,6 +19,10 @@ namespace buff_ject.Views
         public ObservableCollection<Profile> Profile { get; set; }
         public static string SetUsername { get; set; }
         public static string SetPassword { get; set; }
+        public static string SetNameCharactor{ get; set; }
+        public static int SetTotalPower { get; set; }
+        public static int SetBuffCoins { get; set; }
+        public static string SetCharactorURL { get; set; }
 
 
         public LoginPage()
@@ -38,19 +42,21 @@ namespace buff_ject.Views
 
             if (items == null)
             {
-                _ = DisplayAlert("Warning", "Please Register first", "OK");
+                await DisplayAlert("BUFF WARNING", "Please Register first", "OK");
 
 
             }
             else if (items.Username == usernameAuth.Text && items.Password == passwordAuth.Text)
             {
                 
-                 _ = DisplayAlert("Welcome", $"Welcome to buff { usernameAuth.Text }", "OK");
                 SetUsername = usernameAuth.Text;
                 SetPassword = passwordAuth.Text;
                 if (items.NameCharactor != null)
                 {
-                    await Navigation.PushAsync(new MarketplacePage());
+                    SetNameCharactor = items.NameCharactor;
+                    SetTotalPower = items.AgiUser + items.StrUser + items.VitUser;
+                    SetBuffCoins = items.BuffCoin;
+                    await Navigation.PushAsync(new MenuPage());
                 }
                 else
                 {
@@ -60,7 +66,7 @@ namespace buff_ject.Views
             }
             else
             {
-                await DisplayAlert("Warning", $"Your {usernameAuth.Text} or {passwordAuth.Text} WRONG!!", "OK");
+                await DisplayAlert("BUFF WARNING", $"Your {usernameAuth.Text} or {passwordAuth.Text} WRONG!!", "OK");
             }
 
             

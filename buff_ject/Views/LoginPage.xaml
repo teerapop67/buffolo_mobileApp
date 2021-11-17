@@ -5,9 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-        <StackLayout Padding="30" BackgroundColor="#0b121d">
+        <StackLayout Padding="40" BackgroundColor="#0b121d">
             <Label
-                FontSize="Large"
+                FontFamily="PressStart"
+                FontSize="16"
                 HorizontalOptions="Center"
                 Text="Authentication"
                 TextColor="#fff" />
@@ -19,27 +20,41 @@
                     WidthRequest="150" />
             </Frame>
 
-            <Entry
-                x:Name="usernameAuth"
-                Margin="10"
+            <Frame
+                Margin="10,15,10,15"
+                Padding="5"
                 Background="#333333"
-                CharacterSpacing="2"
-                FontSize="Medium"
-                HorizontalTextAlignment="Center"
-                Placeholder="Username"
-                PlaceholderColor="Olive"
-                TextColor="#fff" />
-            <Entry
-                x:Name="passwordAuth"
+                CornerRadius="12">
+                <Entry
+                    x:Name="usernameAuth"
+                    Background="#333333"
+                    CharacterSpacing="2"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Username"
+                    PlaceholderColor="#B2BBCB"
+                    TextColor="#B2BBCB" />
+            </Frame>
+
+            <Frame
                 Margin="10"
+                Padding="5"
                 Background="#333333"
-                CharacterSpacing="2"
-                FontSize="Medium"
-                HorizontalTextAlignment="Center"
-                IsPassword="true"
-                Placeholder="Password"
-                PlaceholderColor="Olive"
-                TextColor="#fff" />
+                CornerRadius="12">
+                <Entry
+                    x:Name="passwordAuth"
+                    Background="#333333"
+                    CharacterSpacing="2"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    IsPassword="true"
+                    Placeholder="Password"
+                    PlaceholderColor="#B2BBCB"
+                    TextColor="#fff" />
+            </Frame>
+
 
             <Button
                 x:Name="Login"
@@ -49,7 +64,8 @@
                 BorderWidth="1"
                 Clicked="Login_Clicked"
                 CornerRadius="20"
-                FontSize="Medium"
+                FontFamily="PressStart"
+                FontSize="12"
                 HorizontalOptions="Center"
                 Text="Login"
                 TextColor="#fff"
@@ -63,7 +79,8 @@
                 BorderWidth="1"
                 Clicked="Register_Clicked"
                 CornerRadius="20"
-                FontSize="Medium"
+                FontFamily="PressStart"
+                FontSize="12"
                 HorizontalOptions="Center"
                 Text="Register"
                 TextColor="#fff"

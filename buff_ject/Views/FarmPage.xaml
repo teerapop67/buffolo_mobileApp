@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="buff_ject.Views.FarmPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="20"
+            Background="#0b121d"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Fill">
+            <Grid ColumnDefinitions="50, 140*">
+                <Button
+                    x:Name="goBack"
+                    BackgroundColor="Transparent"
+                    Clicked="goBack_Clicked"
+                    FontFamily="PressStart">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="AWF"
+                            Glyph="&#xf0a8;"
+                            Size="30"
+                            Color="#b2bbcb" />
+                    </Button.ImageSource>
+                </Button>
+                <Button
+                    x:Name="totalCoin"
+                    Grid.Column="1"
+                    BackgroundColor="#eab410"
+                    BorderColor="#EAB410"
+                    BorderWidth="1.5"
+                    CornerRadius="50"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HeightRequest="30"
+                    HorizontalOptions="EndAndExpand"
+                    Text="O.00 Buff"
+                    TextColor="#FFFFFF"
+                    WidthRequest="140" />
+            </Grid>
+            <Label
+                Margin="30"
+                FontFamily="PressStart"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="Farm"
+                TextColor="#FFFFFF" />
+
+            <Frame
+                Margin="20,20,20,0"
+                Padding="20"
+                BackgroundColor="Transparent"
+                BorderColor="#b2bbcb"
+                CornerRadius="12">
+                <Picker
+                    x:Name="PickerChaName"
+                    Title="Select Charactor"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    ItemDisplayBinding="{Binding NameCharactor}"
+                    ItemsSource="{Binding ChaName}"
+                    SelectedIndexChanged="PickerChaName_SelectedIndexChanged"
+                    TextColor="#fff"
+                    TitleColor="red" />
+            </Frame>
+
+            <Frame
+                Margin="20,0,20,0"
+                Padding="50,15,50,15"
+                BackgroundColor="Transparent"
+                BorderColor="#b2bbcb"
+                CornerRadius="12">
+                <Grid ColumnDefinitions="auto,auto">
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        Text="Name: "
+                        TextColor="#fff" />
+                    <Label
+                        x:Name="ShowCharactor"
+                        Grid.Column="1"
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        Text=""
+                        TextColor="#fff" />
+                </Grid>
+            </Frame>
+
+            <Frame
+                Margin="20,30,20,30"
+                BackgroundColor="#222222"
+                BorderColor="#222222"
+                CornerRadius="12">
+                <Grid ColumnDefinitions="200, auto" RowDefinitions="100, auto">
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        Text="buff earned"
+                        TextColor="#fff" />
+
+                    <Label
+                        x:Name="HavestedCoin"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontFamily="PressStart"
+                        FontSize="16"
+                        Text="0.00"
+                        TextColor="#fff" />
+                    <Button
+                        x:Name="recentCoin"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,0,55,0"
+                        Background="red"
+                        BorderColor="#000"
+                        BorderWidth="4"
+                        Clicked="recentCoin_Clicked"
+                        CornerRadius="50"
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        HeightRequest="30"
+                        Text="CHECK COIN"
+                        TextColor="#fff"
+                        WidthRequest="30" />
+                </Grid>
+            </Frame>
+            <Button
+                x:Name="stake"
+                Margin="20,0,20,0"
+                BackgroundColor="Transparent"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                Clicked="stake_Clicked"
+                CornerRadius="12"
+                FontFamily="PressStart"
+                FontSize="12"
+                Text="Stake"
+                TextColor="#fff" />
+            <Button
+                x:Name="havest"
+                Margin="20,10,20,0"
+                BackgroundColor="Transparent"
+                BorderColor="#EAB410"
+                BorderWidth="1.5"
+                Clicked="havest_Clicked"
+                CornerRadius="12"
+                FontFamily="PressStart"
+                FontSize="12"
+                Text="Havest"
+                TextColor="#fff" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

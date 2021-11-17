@@ -5,11 +5,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-        <StackLayout Padding="30" BackgroundColor="#0b121d">
+        <StackLayout Padding="40" BackgroundColor="#0b121d">
             <Label
-                FontSize="Large"
+                FontFamily="PressStart"
+                FontSize="16"
                 HorizontalOptions="Center"
-                Text="Authentication"
+                Text="Register"
                 TextColor="#fff" />
             <Frame Margin="20" BackgroundColor="#0b121d">
                 <Image
@@ -17,43 +18,64 @@
                     Source="logo.png"
                     WidthRequest="150" />
             </Frame>
+            <Frame
+                Margin="10,15,10,15"
+                Padding="5"
+                Background="#333333"
+                CornerRadius="12">
+                <Entry
+                    x:Name="usernameRegis"
+                    Background="#333333"
+                    CharacterSpacing="2"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Enter Username"
+                    PlaceholderColor="#B2BBCB"
+                    Text="{Binding Username, Mode=TwoWay}"
+                    TextColor="#fff" />
+            </Frame>
 
-            <Entry
-                x:Name="usernameRegis"
-                Margin="10"
+            <Frame
+                Margin="10,15,10,15"
+                Padding="5"
                 Background="#333333"
-                CharacterSpacing="2"
-                FontSize="Medium"
-                HorizontalTextAlignment="Center"
-                Placeholder="Enter Username"
-                PlaceholderColor="Olive"
-                Text="{Binding Username, Mode=TwoWay}"
-                TextColor="#fff" />
-            <Entry
-                x:Name="passwordRegis"
-                Margin="10"
-                Background="#333333"
-                CharacterSpacing="2"
-                ClearButtonVisibility="WhileEditing"
-                FontSize="Medium"
-                HorizontalTextAlignment="Center"
-                Placeholder="Enter Password"
-                PlaceholderColor="Olive"
-                Text="{Binding Username, Mode=TwoWay}"
-                TextColor="#fff" />
+                CornerRadius="12">
+                <Entry
+                    x:Name="passwordRegis"
+                    Background="#333333"
+                    CharacterSpacing="2"
+                    ClearButtonVisibility="WhileEditing"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Enter Password"
+                    PlaceholderColor="#B2BBCB"
+                    Text="{Binding Username, Mode=TwoWay}"
+                    TextColor="#fff" />
+            </Frame>
 
-            <Entry
-                x:Name="emailRegis"
-                Margin="10"
+            <Frame
+                Margin="10,15,10,15"
+                Padding="5"
                 Background="#333333"
-                CharacterSpacing="2"
-                ClearButtonVisibility="WhileEditing"
-                FontSize="Medium"
-                HorizontalTextAlignment="Center"
-                Placeholder="Enter Email"
-                PlaceholderColor="Olive"
-                Text="{Binding Email, Mode=TwoWay}"
-                TextColor="#fff" />
+                CornerRadius="12">
+                <Entry
+                    x:Name="emailRegis"
+                    Background="#333333"
+                    CharacterSpacing="2"
+                    ClearButtonVisibility="WhileEditing"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HorizontalTextAlignment="Center"
+                    Placeholder="Enter Email"
+                    PlaceholderColor="#B2BBCB"
+                    Text="{Binding Email, Mode=TwoWay}"
+                    TextColor="#fff" />
+            </Frame>
+
+
+
 
             <Button
                 x:Name="Registers"
@@ -63,11 +85,20 @@
                 BorderWidth="1"
                 Clicked="Registers_Clicked"
                 CornerRadius="20"
-                FontSize="Medium"
+                FontFamily="PressStart"
+                FontSize="12"
                 HorizontalOptions="Center"
                 Text="Register"
                 TextColor="#fff"
                 WidthRequest="150" />
+            <Button
+                BackgroundColor="Transparent"
+                Clicked="Button_Clicked"
+                CornerRadius="36"
+                FontFamily="PressStart"
+                FontSize="12"
+                Text="Go Back"
+                TextColor="#fff" />
 
 
 

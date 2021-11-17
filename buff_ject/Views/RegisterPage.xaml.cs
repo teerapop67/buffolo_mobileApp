@@ -33,11 +33,38 @@ namespace buff_ject.Views
                 Email = emailRegis.Text
             };
 
+            var getProfile = await BaseViewModel.DataStore.GetItemAsync(usernameRegis.Text);
+
+
             user = usernameRegis.Text;
 
-            await BaseViewModel.DataStore.AddItemAsync(UserAuth);
+            if(usernameRegis.Text != null && passwordRegis.Text != null && emailRegis.Text != null)
+            {
+                
+                if (getProfile == null)
+                {
+                    await BaseViewModel.DataStore.AddItemAsync(UserAuth);
 
+                    await Navigation.PushAsync(new LoginPage());
+                }
+                else
+                {
+                    await DisplayAlert("BUFF WARNING", "This Username already exist", "OK");
+                }
+
+            }
+            else
+            {
+                await DisplayAlert("BUFF WARNING", "Please fill out all of entry", "OK");
+            }
+
+            
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
             await Navigation.PushAsync(new LoginPage());
+
         }
     }
 }

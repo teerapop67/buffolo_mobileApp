@@ -26,7 +26,7 @@ namespace buff_ject.Views
             base.OnAppearing();
             Items = new ObservableCollection<Models.Collection>();
             Item.ItemsSource = Items;
-
+            totalCoin.Text = $"{LoginPage.SetBuffCoins} BUFF";
             LoadItemData();
         }
 
@@ -59,7 +59,7 @@ namespace buff_ject.Views
             {
                 ItemImage = "CaptianBenz.png",
                 ItemName = "CaptianBenz",
-                ItemPrice = "100000000 buff",
+                ItemPrice = "999 buff",
                 Agi = 999,
                 Str = 999,
                 Vit = 999,
@@ -130,6 +130,12 @@ namespace buff_ject.Views
             {
                 await DisplayAlert("Complete:", $"You bought {param.ItemName}", "OK");
             }
+        }
+
+        private async void goBack_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+
         }
     }
 }

@@ -15,8 +15,8 @@ namespace buff_ject.Views
     public partial class SelectCharactorPage : ContentPage
     {
         public ObservableCollection<Models.Profile> Chalactors { get; set; }
-        public string SaveUrlCharactor;
-        public string SaveNameCharctor;
+        public static string SaveUrlCharactor;
+        public static string SaveNameCharctor;
 
         public SelectCharactorPage()
         {
@@ -74,12 +74,14 @@ namespace buff_ject.Views
 
         private async void btnSelect_Clicked(object sender, EventArgs e)
         {
-            var selected = await DisplayAlert("Complete:", "Are you sure to select this charactor?", "Yes", "No");
+            var selected = await DisplayAlert("Complete", "Are you sure to select this charactor?", "Yes", "No");
 
             if(selected)
             {
 
                 var Getprofile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
+
+                LoginPage.SetNameCharactor = SaveNameCharctor;
 
                 Profile UpdateProfile = new Profile()
                 {
@@ -95,7 +97,7 @@ namespace buff_ject.Views
                     Id  = Getprofile.Id
                 };
                 await BaseViewModel.DataStore.UpdateItemAsync(UpdateProfile);
-                await Navigation.PushAsync(new MarketplacePage());
+                await Navigation.PushAsync(new MenuPage());
             }
         }
     }

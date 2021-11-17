@@ -7,7 +7,8 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("msregular.otf", Alias = "msregular")]
 [assembly: ExportFont("moregular.otf", Alias = "moregular")]
 [assembly: ExportFont("mrregular.otf", Alias = "mrregular")]
-[assembly: ExportFont("FontAwesome5FreeRegular400.otf", Alias = "FontAwesome5Regular")]
+[assembly: ExportFont("FontAwesome5FreeSolid900.otf", Alias = "AWF")]
+[assembly: ExportFont("PressStart2P-Regular.ttf", Alias = "PressStart")]
 
 
 namespace buff_ject
@@ -18,7 +19,7 @@ namespace buff_ject
         {
             DependencyService.Register<IDataStore<Models.Profile>, FSDataStore>();
 
-            MainPage = new NavigationPage(new Views.LoginPage());
+            MainPage = new NavigationPage(new Views.LoadingPage());
         }
 
         protected override void OnStart()

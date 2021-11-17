@@ -18,6 +18,7 @@
     <None Remove="Fonts\mrregular.otf" />
     <None Remove="Fonts\msregular.otf" />
     <None Remove="Fonts\mttregular.otf" />
+    <None Remove="Fonts\PressStart2P-Regular.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,7 @@
     <EmbeddedResource Include="Fonts\mrregular.otf" />
     <EmbeddedResource Include="Fonts\msregular.otf" />
     <EmbeddedResource Include="Fonts\mttregular.otf" />
+    <EmbeddedResource Include="Fonts\PressStart2P-Regular.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,12 +39,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="MenuPage.xaml.cs">
+      <DependentUpon>MenuPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SelectCharactorPage.xaml.cs">
       <DependentUpon>SelectCharactorPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\FarmPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\LoadingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\SelectCharactorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
