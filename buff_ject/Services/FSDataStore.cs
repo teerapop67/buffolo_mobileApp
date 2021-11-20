@@ -25,7 +25,6 @@ namespace buff_ject.Services
         }
 
 
-
         public async Task<bool> DeleteItemAsync(string username)
         {
             var toDeletePerson = (await firebase

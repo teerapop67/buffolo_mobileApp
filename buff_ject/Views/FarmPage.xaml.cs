@@ -17,6 +17,7 @@ namespace buff_ject.Views
     {
         public IList<Profile> ChaName { get; private set; }
         public static int havesting = 0;
+        public bool isStake;
 
 
         public int selectedNamePower { get; set; }
@@ -59,7 +60,7 @@ namespace buff_ject.Views
 
         private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
         {
-            havesting = havesting + 5;
+            havesting = havesting + ((LoginPage.SetTotalPower * 2)/100) + 10 ;
             Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
         }
 
@@ -69,7 +70,8 @@ namespace buff_ject.Views
             if (havesting == 0 && selectedName != null)
             {
                 aTimer = new Timer();
-                aTimer.Interval = 2000;
+                aTimer.Interval = 3000;
+
 
                 aTimer.Elapsed += OnTimedEvent;
                 aTimer.AutoReset = true;
@@ -85,6 +87,7 @@ namespace buff_ject.Views
                 DisplayAlert("BUFF WARNING", "Select Charactor First", "OK");
             }
 
+            isStake = true;
 
         }
 
@@ -92,7 +95,8 @@ namespace buff_ject.Views
         {
             aTimer.Enabled = false;
             stake.Text = "Stake";
-            
+            isStake = false;
+
             var Getprofile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
 
             LoginPage.SetBuffCoins += havesting;
@@ -116,6 +120,9 @@ namespace buff_ject.Views
             };
             await BaseViewModel.DataStore.UpdateItemAsync(UpdateProfile);
 
+            await DisplayAlert("BUFF EARNED", "Your havested complete!", "OK");
+
+
         }
 
         private async void goBack_Clicked(object sender, EventArgs e)
@@ -136,7 +143,10 @@ namespace buff_ject.Views
 
         private void recentCoin_Clicked(object sender, EventArgs e)
         {
-            HavestedCoin.Text = havesting.ToString();
+            if(isStake)
+            {
+                HavestedCoin.Text = havesting.ToString();
+            }
 
         }
     }

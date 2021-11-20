@@ -32,6 +32,7 @@ namespace buff_ject
 
         private async void Profile_Clicked(object sender, EventArgs e)
         {
+            await Navigation.PushAsync(new ProfilePage());
 
         }
 

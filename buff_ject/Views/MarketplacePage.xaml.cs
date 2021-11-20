@@ -1,4 +1,5 @@
-﻿using System;
+﻿using buff_ject.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -125,10 +126,58 @@ namespace buff_ject.Views
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             var param = ((TappedEventArgs)e).Parameter as Models.Collection;
-            var selected = await DisplayAlert("Complete:", "Are you sure to select this charactor?", "Yes", "No");
+            var selected = await DisplayAlert("BUFF MARKET", $"Are you sure to BUY this Item? Str: {param.Str}  Agi: {param.Agi}  Vit: {param.Vit}", "Buy", "Later");
+            string[] setPrice = param.ItemPrice.Split(' ');
+
+
+            Collection UpdateCollections = new Collection()
+            {
+                Username = LoginPage.SetUsername,
+                ItemPrice = setPrice[0],
+                ItemName = param.ItemName,
+                ItemImage = param.ItemImage,
+                Str = param.Str,
+                Agi = param.Agi,
+                Vit = param.Vit
+            };
+
+            var Getprofile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
+
+            Profile UpdateProfile = new Profile()
+            {
+                Username = Getprofile.Username,
+                CharactorURL = Getprofile.CharactorURL,
+                NameCharactor = Getprofile.NameCharactor,
+                Password = Getprofile.Password,
+                StrUser = Getprofile.StrUser + param.Str,
+                AgiUser = Getprofile.AgiUser + param.Agi,
+                VitUser = Getprofile.VitUser + param.Vit,
+                BuffCoin = LoginPage.SetBuffCoins - Int16.Parse(setPrice[0]),
+                Email = Getprofile.Email,
+                Id = Getprofile.Id
+            };
+
+
+
             if (selected)
             {
-                await DisplayAlert("Complete:", $"You bought {param.ItemName}", "OK");
+                //var Getprofile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
+
+                if(Getprofile.BuffCoin >= Int16.Parse(setPrice[0]))
+                {
+                    await BaseViewModel.DataStoreCollect.AddItemAsyncCollec(UpdateCollections);
+                    await BaseViewModel.DataStore.UpdateItemAsync(UpdateProfile);
+                    LoginPage.SetBuffCoins = UpdateProfile.BuffCoin;
+                    LoginPage.SetTotalPower += UpdateProfile.StrUser + UpdateProfile.AgiUser + UpdateProfile.VitUser;
+                    totalCoin.Text = $"{LoginPage.SetBuffCoins} BUFF";
+
+                    await DisplayAlert("Complete:", $"You have bought {UpdateCollections.ItemName} : Price {UpdateCollections.ItemPrice} ", "OK");
+
+                }
+                else
+                {
+                    await DisplayAlert("BUFF WARNING", "Your Buff is not enough try again later", "OK");
+                }
             }
         }
 

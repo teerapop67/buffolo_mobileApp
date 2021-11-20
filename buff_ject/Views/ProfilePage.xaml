@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="buff_ject.Views.ProfilePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="30,50,30,0"
+            BackgroundColor="#0b121d"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Fill">
+            <Grid ColumnDefinitions="20, 140*">
+                <Button
+                    x:Name="goBack"
+                    BackgroundColor="Transparent"
+                    Clicked="goBack_Clicked"
+                    FontFamily="PressStart">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="AWF"
+                            Glyph="&#xf0a8;"
+                            Size="30"
+                            Color="#b2bbcb" />
+                    </Button.ImageSource>
+                </Button>
+                <Button
+                    x:Name="editProfile"
+                    Grid.Column="3"
+                    BackgroundColor="Transparent"
+                    Clicked="editProfile_Clicked"
+                    FontFamily="PressStart"
+                    HorizontalOptions="End"
+                    VerticalOptions="End">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="AWF"
+                            Glyph="&#xf044;"
+                            Size="30"
+                            Color="#b2bbcb" />
+                    </Button.ImageSource>
+                </Button>
+
+            </Grid>
+            <StackLayout
+                Padding="15"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="StartAndExpand">
+                <Label
+                    FontFamily="PressStart"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="Profile"
+                    TextColor="#B2BBCB" />
+                <Frame
+                    BackgroundColor="Transparent"
+                    CornerRadius="100"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True">
+                    <Image
+                        x:Name="ProfileUrl"
+                        Aspect="AspectFit"
+                        HeightRequest="150"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="200" />
+                </Frame>
+                <!--<Button
+                    x:Name="ChooseImage"
+                    Margin="10,0,0,25"
+                    Background="Transparent"
+                    BorderColor="red"
+                    BorderWidth="1.5"
+                    Clicked="ChooseImage_Clicked"
+                    CornerRadius="12"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    Text="Choose image"
+                    TextColor="#fff" />-->
+
+
+                <StackLayout HorizontalOptions="Center" Spacing="10">
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Username : " />
+                                <Span x:Name="UserProfile" Text="PhathaNanZ_-" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Total buff : " />
+                                <Span x:Name="CoinProfile" Text="100 buff" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Equipment : " />
+                                <Span x:Name="ItemProfile" Text="0 items" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Agi : " />
+                                <Span x:Name="AgiProfile" Text="150" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Str : " />
+                                <Span x:Name="StrProfile" Text="150" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Vit : " />
+                                <Span x:Name="VitProfile" Text="150" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+
+                <Label
+                    Margin="0,20,0,0"
+                    FontFamily="PressStart"
+                    FontSize="14"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Collection"
+                    TextColor="#B2BBCB" />
+
+
+                <CollectionView x:Name="Collec" ItemsSource="{Binding Collections}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="3" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid
+                                Padding="15"
+                                ColumnDefinitions="Auto , Auto"
+                                RowDefinitions="Auto ,Auto">
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    BackgroundColor="#FFFFFF"
+                                    HeightRequest="80"
+                                    Source="{Binding ItemImage}"
+                                    WidthRequest="80" />
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

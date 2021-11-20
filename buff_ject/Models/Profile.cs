@@ -16,7 +16,6 @@ namespace buff_ject.Models
         public int VitUser { get; set; }
         public int AgiUser { get; set; }
         public int TotalPower { get; set; }
-
-        
+        public string ProfileURL { get; set; }
     }
 }
