@@ -38,7 +38,7 @@ namespace buff_ject
 
         private async void Lucky_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new LuckydrawPage());
         }
 
         private async void Farm_Clicked(object sender, EventArgs e)

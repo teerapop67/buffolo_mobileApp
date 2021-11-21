@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="buff_ject.Views.LuckydrawPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20"
+                     BackgroundColor="#0b121d"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="Fill">
+
+            <Grid ColumnDefinitions ="50, 140*">
+                <Button x:Name="backButton"
+                        BackgroundColor="Transparent"
+                        Clicked="backButton_Clicked"
+                        FontFamily="PressStart">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="AWF"
+                                         Glyph="&#xf0a8;"
+                                         Size="30"
+                                         Color="#b2bbcb">
+                        </FontImageSource>
+                    </Button.ImageSource>
+                </Button>
+                <Button
+                    x:Name="totalCoin"
+                    Grid.Column="1"
+                    BackgroundColor="#eab410"
+                    BorderColor="#EAB410"
+                    BorderWidth="1.5"
+                    CornerRadius="50"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HeightRequest="30"
+                    HorizontalOptions="EndAndExpand"
+                    Text="O.00 Buff"
+                    TextColor="#FFFFFF"
+                    WidthRequest="140" />
+            </Grid>
+            <Label Margin="30"
+                   FontFamily="PressStart"
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   Text="LuckyDraw"
+                   TextColor="White"/>
+
+
+            <Button x:Name="drawButton"
+                        Clicked="drawButton_Clicked"
+                        FontFamily="PressStart"
+                        FontSize="18"
+                        HorizontalOptions="CenterAndExpand" 
+                        Text="Draw"
+                        WidthRequest="160"
+                        HeightRequest="60"
+                    CornerRadius="5"
+                    BorderWidth="1.5"
+                    Background="Red"
+                    BorderColor="Black">
+
+            </Button>
+            <Frame
+                Margin="20,30,20,20"
+                BackgroundColor="#222222"
+                BorderColor="White"
+                CornerRadius="5">
+                <Grid ColumnDefinitions="260,auto" RowDefinitions="100,auto">
+                    <Label Text="Item you got"
+                           FontSize="12"
+                           TextColor="White"
+                           FontFamily="PressStart"
+                           HorizontalOptions="Center"
+                           />
+                    <Frame Margin="20,30,20,20"
+                           BackgroundColor="Azure"
+                           BorderColor="White"
+                           CornerRadius="5">
+                        <Grid ColumnDefinitions="190,auto" RowDefinitions="100,auto">
+                            <Label x:Name="gotItem"
+                           Text="Coin"
+                           FontSize="12"
+                           TextColor="Black"
+                           FontFamily="PressStart"
+                           HorizontalOptions="Center"
+                           />
+                        </Grid>
+                    </Frame>
+                </Grid>
+
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

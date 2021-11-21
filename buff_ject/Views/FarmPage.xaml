@@ -39,6 +39,7 @@
                     TextColor="#FFFFFF"
                     WidthRequest="140" />
             </Grid>
+            
             <Label
                 Margin="30"
                 FontFamily="PressStart"
