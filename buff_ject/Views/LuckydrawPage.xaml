@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="buff_ject.Views.LuckydrawPage">
+             x:Class="buff_ject.Views.LuckydrawPage"
+             NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
         <StackLayout Padding="20"
                      BackgroundColor="#0b121d"
@@ -63,7 +64,7 @@
                 BackgroundColor="#222222"
                 BorderColor="White"
                 CornerRadius="5">
-                <Grid ColumnDefinitions="260,auto" RowDefinitions="100,auto">
+                <Grid ColumnDefinitions="260,auto" RowDefinitions="100,3">
                     <Label Text="Item you got"
                            FontSize="12"
                            TextColor="White"
@@ -76,7 +77,7 @@
                            CornerRadius="5">
                         <Grid ColumnDefinitions="190,auto" RowDefinitions="100,auto">
                             <Label x:Name="gotItem"
-                           Text="Coin"
+                           
                            FontSize="12"
                            TextColor="Black"
                            FontFamily="PressStart"
@@ -85,8 +86,12 @@
                         </Grid>
                     </Frame>
                 </Grid>
-
             </Frame>
+            <Label x:Name="limitDraw"
+                   FontSize="12"
+                   TextColor="White"
+                   FontFamily="PressStart"
+                   HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

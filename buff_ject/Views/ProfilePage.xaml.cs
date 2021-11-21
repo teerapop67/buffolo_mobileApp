@@ -17,9 +17,8 @@ namespace buff_ject.Views
     {
         public ObservableCollection<Models.Collection> Collections { get; set; }
         ObservableCollection<ImageSource> imageList = null;
-        public int AmountItem = 0;
         bool IsPicker = false;
-
+        public int countza = 0;
 
         public ProfilePage()
         {
@@ -30,21 +29,24 @@ namespace buff_ject.Views
 
         protected async override void OnAppearing()
         {
+
             base.OnAppearing();
 
+            
             var Getprofile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
             var GetTotalItem = await BaseViewModel.DataStoreCollect.GetItemsAsyncCollec();
-            AmountItem = GetTotalItem.Count();
+
             Collections = new ObservableCollection<Models.Collection>();
             Collec.ItemsSource = Collections;
             ProfileUrl.Source = Getprofile.CharactorURL;
             UserProfile.Text = Getprofile.Username;
             CoinProfile.Text = Getprofile.BuffCoin.ToString();
-            ItemProfile.Text = GetTotalItem.Count().ToString();
+            
             AgiProfile.Text = Getprofile.AgiUser.ToString();
             StrProfile.Text = Getprofile.StrUser.ToString();
             VitProfile.Text = Getprofile.VitUser.ToString();
             LoadCollecData();
+            
         }
 
         protected override void OnDisappearing()
@@ -62,19 +64,22 @@ namespace buff_ject.Views
 
             foreach (Collection item in GetTotalItem)
             {
-
-                Collections.Add(new Collection()
+                if(item.Username == LoginPage.SetUsername)
                 {
-                    ItemImage = item.ItemImage,
-                    ItemName = item.ItemName,
-                    ItemPrice = item.ItemPrice,
-                    Username = LoginPage.SetUsername,
-                    Str = item.Str,
-                    Vit = item.Vit,
-                    Agi = item.Agi
-                });
+                    countza += 1;
+                    Collections.Add(new Collection()
+                    {
+                        ItemImage = item.ItemImage,
+                        ItemName = item.ItemName,
+                        ItemPrice = item.ItemPrice,
+                        Username = LoginPage.SetUsername,
+                        Str = item.Str,
+                        Vit = item.Vit,
+                        Agi = item.Agi
+                    });
+                }
             }
-
+            ItemProfile.Text = countza.ToString();
         }
 
         private async void goBack_Clicked(object sender, EventArgs e)
