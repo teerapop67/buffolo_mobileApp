@@ -15,6 +15,7 @@ namespace buff_ject.Views
     public partial class SelectCharactorPage : ContentPage
     {
         public ObservableCollection<Models.Profile> Chalactors { get; set; }
+
         public static string SaveUrlCharactor;
         public static string SaveNameCharctor;
 
@@ -94,7 +95,8 @@ namespace buff_ject.Views
                     VitUser = 1,
                     BuffCoin = 0,
                     Email = Getprofile.Email,
-                    Id  = Getprofile.Id
+                    Id  = Getprofile.Id,
+                    drawTime = 5
                 };
                 LoginPage.SetTotalPower = UpdateProfile.AgiUser + UpdateProfile.StrUser + UpdateProfile.VitUser;
                 LoginPage.SetBuffCoins = UpdateProfile.BuffCoin;

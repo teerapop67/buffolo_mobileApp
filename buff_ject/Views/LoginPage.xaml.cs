@@ -24,6 +24,8 @@ namespace buff_ject.Views
         public static int SetBuffCoins { get; set; }
         public static string SetCharactorURL { get; set; }
 
+        public static int SetDrawTime { get; set; }
+
 
         public LoginPage()
         {
@@ -37,7 +39,10 @@ namespace buff_ject.Views
             //string strFileName = objFileImageSource;
             //_ = DisplayAlert("Warning", strFileName, "OK");
 
+
+            // หาจาก Database ว่ามีข้อมูลของผู้ใช้นี้อยู่ในฐานข้อมูลไหม โดยเอาข้อมูลมาจาก usernameAuth Entry
             var items = await BaseViewModel.DataStore.GetItemAsync(usernameAuth.Text);
+            
 
 
             if (items == null)
@@ -55,13 +60,13 @@ namespace buff_ject.Views
                 {
                     SetNameCharactor = items.NameCharactor;
                     SetTotalPower = items.AgiUser + items.StrUser + items.VitUser;
+                    SetDrawTime = items.drawTime;
                     SetBuffCoins = items.BuffCoin;
                     await Navigation.PushAsync(new MenuPage());
                 }
                 else
                 {
                     await Navigation.PushAsync(new SelectCharactorPage());
-
                 }
             }
             else
