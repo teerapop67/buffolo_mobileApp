@@ -14,7 +14,7 @@ namespace buff_ject.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "1.0.0.0")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.1.0.11")]
 	public partial class Resource
 	{
 		
@@ -11825,6 +11825,9 @@ namespace buff_ject.Droid
 			
 			// aapt resource value: 0x7F07009C
 			public const int tooltip_frame_light = 2131165340;
+			
+			// aapt resource value: 0x7F07009D
+			public const int warwick = 2131165341;
 			
 			static Drawable()
 			{

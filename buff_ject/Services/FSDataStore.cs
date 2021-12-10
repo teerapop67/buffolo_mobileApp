@@ -56,7 +56,8 @@ namespace buff_ject.Services
                   AgiUser = item.Object.AgiUser,
                   VitUser = item.Object.VitUser,
                   TotalPower = item.Object.TotalPower,
-                  drawTime = item.Object.drawTime
+                  drawTime = item.Object.drawTime,
+                  turnTime = item.Object.turnTime
 
               }).ToList();// คืนค่าแบบกลุ่มออกไป
         }

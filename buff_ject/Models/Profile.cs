@@ -18,5 +18,6 @@ namespace buff_ject.Models
         public int TotalPower { get; set; }
         public string ProfileURL { get; set; }
         public int drawTime { get; set; }
+        public int turnTime { get; set; }
     }
 }

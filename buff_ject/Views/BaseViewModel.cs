@@ -13,6 +13,7 @@ namespace buff_ject.Views
         public static IDataStore<Profile> DataStore => DependencyService.Get<IDataStore<Profile>>();
         public static IDataStoreCollection<Collection> DataStoreCollect => DependencyService.Get<IDataStoreCollection<Collection>>();
 
+        public static IDataStoreRaidBoss<RaidBoss> DataStoreRaidBoss => DependencyService.Get<IDataStoreRaidBoss<RaidBoss>>();
 
         bool isBusy = false;
       

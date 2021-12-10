@@ -54,7 +54,7 @@ namespace buff_ject
 
         private async void Fight_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new Page1());
         }
     }
 }

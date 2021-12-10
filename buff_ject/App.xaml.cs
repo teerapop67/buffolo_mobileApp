@@ -19,6 +19,7 @@ namespace buff_ject
         {
             DependencyService.Register<IDataStore<Models.Profile>, FSDataStore>();
             DependencyService.Register<IDataStoreCollection<Models.Collection>, FSDataStoreCollection>();
+            DependencyService.Register<IDataStoreRaidBoss<Models.RaidBoss>, FSDataStoreRaidBoss>();
 
             MainPage = new NavigationPage(new Views.LoadingPage());
         }

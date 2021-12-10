@@ -116,7 +116,9 @@ namespace buff_ject.Views
                 VitUser = Getprofile.VitUser,
                 BuffCoin = LoginPage.SetBuffCoins,
                 Email = Getprofile.Email,
-                Id = Getprofile.Id
+                Id = Getprofile.Id,
+                turnTime = Getprofile.turnTime,
+                drawTime = Getprofile.drawTime
             };
             await BaseViewModel.DataStore.UpdateItemAsync(UpdateProfile);
 

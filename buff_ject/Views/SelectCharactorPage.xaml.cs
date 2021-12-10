@@ -96,7 +96,8 @@ namespace buff_ject.Views
                     BuffCoin = 0,
                     Email = Getprofile.Email,
                     Id  = Getprofile.Id,
-                    drawTime = 5
+                    drawTime = 5,
+                    turnTime = 5
                 };
                 LoginPage.SetTotalPower = UpdateProfile.AgiUser + UpdateProfile.StrUser + UpdateProfile.VitUser;
                 LoginPage.SetBuffCoins = UpdateProfile.BuffCoin;

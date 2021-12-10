@@ -25,6 +25,8 @@ namespace buff_ject.Views
         public static string SetCharactorURL { get; set; }
 
         public static int SetDrawTime { get; set; }
+        public static int SetTurnTime { get; set; }
+        public static string SetBoss { get; set; }
 
 
         public LoginPage()
@@ -61,6 +63,7 @@ namespace buff_ject.Views
                     SetNameCharactor = items.NameCharactor;
                     SetTotalPower = items.AgiUser + items.StrUser + items.VitUser;
                     SetDrawTime = items.drawTime;
+                    SetTurnTime = items.turnTime;
                     SetBuffCoins = items.BuffCoin;
                     await Navigation.PushAsync(new MenuPage());
                 }
@@ -77,7 +80,10 @@ namespace buff_ject.Views
             
         }
 
-        
+        void callBoss()
+        {
+
+        }
 
         private async void Register_Clicked(object sender, EventArgs e)
         {

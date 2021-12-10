@@ -16,7 +16,7 @@ namespace buff_ject.Views
     {
         private int IdUer;
         public static string user { get; set; }
-
+        public ImageSource Source = "warwick.png";
         public RegisterPage()
         {
             InitializeComponent();
@@ -31,7 +31,24 @@ namespace buff_ject.Views
                 Username = usernameRegis.Text,
                 Password = passwordRegis.Text,
                 Email = emailRegis.Text
+
             };
+            //RaidBoss boss = new RaidBoss()
+            //{
+            //    NameBoss = "Warwick",
+            //    HpBoss = 100000,
+            //    ImageBoss = "warwick.png"
+            //};
+
+            //try
+            //{
+            //    await BaseViewModel.DataStoreRaidBoss.AddItemAsyncCollec(boss);
+            //}
+            //catch (Exception)
+            //{
+
+            //    await DisplayAlert("Created", "Created", "Created");
+            //}
 
             var getProfile = await BaseViewModel.DataStore.GetItemAsync(usernameRegis.Text);
 

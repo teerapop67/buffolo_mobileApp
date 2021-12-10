@@ -86,7 +86,8 @@ namespace buff_ject.Views
                     BuffCoin = LoginPage.SetBuffCoins,
                     Email = Getprofile.Email,
                     Id = Getprofile.Id,
-                    drawTime = limit
+                    drawTime = limit,
+                    turnTime = Getprofile.turnTime
                 };
                 await BaseViewModel.DataStore.UpdateItemAsync(UpdateDraw);
 
@@ -106,7 +107,8 @@ namespace buff_ject.Views
                         BuffCoin = LoginPage.SetBuffCoins,
                         Email = Getprofile.Email,
                         Id = Getprofile.Id,
-                        drawTime = limit
+                        drawTime = limit,
+                        turnTime = Getprofile.turnTime
 
                     };
                     totalCoin.Text = $"{LoginPage.SetBuffCoins} BUFF";

@@ -25,5 +25,13 @@ namespace buff_ject.Services
         Task<IEnumerable<T>> GetItemsAsyncCollec(bool forceRefresh = false);
 
     }
+    public interface IDataStoreRaidBoss<T>
+    {
+        Task<bool> AddItemAsyncCollec(T boss);
+        Task<bool> UpdateItemAsyncCollec(T boss);
+        Task<bool> DeleteItemAsyncCollec(string nameboss);
+        Task<T> GetItemAsyncCollec(string nameboss);
+        Task<IEnumerable<T>> GetItemsAsyncCollec(bool forceRefresh = false);
+    }
         
 }
