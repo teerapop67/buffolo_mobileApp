@@ -40,7 +40,12 @@ namespace buff_ject.Views
                 PickerChaName.SelectedIndex = 0;
                 ShowCharactor.Text = selectedName;
                 HavestedCoin.Text = havesting.ToString();
-            } else
+                HavestedCoin.TextColor = Color.GreenYellow;
+                recentCoin.TextColor = Color.LightYellow;
+                isStake = true;
+
+            }
+            else
             {
                 HavestedCoin.Text = "0.00";
 
@@ -120,6 +125,8 @@ namespace buff_ject.Views
                 turnTime = Getprofile.turnTime,
                 drawTime = Getprofile.drawTime
             };
+
+
             await BaseViewModel.DataStore.UpdateItemAsync(UpdateProfile);
 
             await DisplayAlert("BUFF EARNED", "Your havested complete!", "OK");

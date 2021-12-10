@@ -10,7 +10,7 @@
             Background="#0b121d"
             HorizontalOptions="FillAndExpand"
             VerticalOptions="Fill">
-            <Grid ColumnDefinitions="50, 140*">
+            <Grid ColumnDefinitions="50, *">
                 <Button
                     x:Name="goBack"
                     BackgroundColor="Transparent"
@@ -36,10 +36,9 @@
                     HeightRequest="30"
                     HorizontalOptions="EndAndExpand"
                     Text="O.00 Buff"
-                    TextColor="#FFFFFF"
-                    WidthRequest="140" />
+                    TextColor="#FFFFFF" />
             </Grid>
-            
+
             <Label
                 Margin="30"
                 FontFamily="PressStart"
@@ -94,7 +93,7 @@
                 BackgroundColor="#222222"
                 BorderColor="#222222"
                 CornerRadius="12">
-                <Grid ColumnDefinitions="200, auto" RowDefinitions="100, auto">
+                <Grid ColumnDefinitions="180, auto" RowDefinitions="100, auto">
                     <Label
                         FontFamily="PressStart"
                         FontSize="12"

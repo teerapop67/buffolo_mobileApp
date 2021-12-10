@@ -24,6 +24,8 @@ namespace buff_ject.Views
         public static int SetBuffCoins { get; set; }
         public static string SetCharactorURL { get; set; }
 
+        public static string SetEmail { get; set; }
+
         public static int SetDrawTime { get; set; }
         public static int SetTurnTime { get; set; }
         public static string SetBoss { get; set; }
@@ -65,6 +67,7 @@ namespace buff_ject.Views
                     SetDrawTime = items.drawTime;
                     SetTurnTime = items.turnTime;
                     SetBuffCoins = items.BuffCoin;
+                    SetEmail = items.Email;
                     await Navigation.PushAsync(new MenuPage());
                 }
                 else

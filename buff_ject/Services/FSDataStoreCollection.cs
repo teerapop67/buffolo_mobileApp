@@ -27,19 +27,19 @@ namespace buff_ject.Services
 
 
 
-        public async Task<bool> DeleteItemAsyncCollec(string username)
+        public async Task<bool> DeleteItemAsyncCollec(string item_name)
         {
-            var toDeletePerson = (await firebase
+            var toDeleteItem = (await firebase
               .Child("CollectionItem") // ลบ item ออกจากฐานข้อมูล ตามไอดีที่กำหนด
-              .OnceAsync<Collection>()).Where(a => a.Object.Username == username).FirstOrDefault();
-            await firebase.Child("CollectionItem").Child(toDeletePerson.Key).DeleteAsync();
+              .OnceAsync<Collection>()).Where(a => a.Object.ItemName == item_name).FirstOrDefault();
+            await firebase.Child("CollectionItem").Child(toDeleteItem.Key).DeleteAsync();
             return true;
         }
 
-        public async Task<Collection> GetItemAsyncCollec(string username)
+        public async Task<Collection> GetItemAsyncCollec(string item_name)
         {
             var item = await GetItemsAsyncCollec(); //ดึงข้อมูลทั้งหมดมา
-            return item.Where(a => a.Username == username).FirstOrDefault(); // ส่งค่ากลับเฉพาะไอดีที่ตรงกัน
+            return item.Where(a => a.ItemName == item_name).FirstOrDefault(); // ส่งค่ากลับเฉพาะไอดีที่ตรงกัน
         }
 
         public async Task<IEnumerable<Collection>> GetItemsAsyncCollec(bool forceRefresh = false)
@@ -64,7 +64,7 @@ namespace buff_ject.Services
             var toUpdateProfile = (await firebase
               .Child("CollectionItem")
               .OnceAsync<Collection>())
-              .Where(a => a.Object.Username == itemCollect.Username)
+              .Where(a => a.Object.ItemName == itemCollect.ItemName)
               .FirstOrDefault();
 
             await firebase

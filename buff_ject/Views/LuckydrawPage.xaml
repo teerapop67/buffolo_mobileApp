@@ -1,25 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="buff_ject.Views.LuckydrawPage"
-             NavigationPage.HasNavigationBar="false">
+<ContentPage
+    x:Class="buff_ject.Views.LuckydrawPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-        <StackLayout Padding="20"
-                     BackgroundColor="#0b121d"
-                     HorizontalOptions="FillAndExpand"
-                     VerticalOptions="Fill">
+        <StackLayout
+            Padding="20"
+            BackgroundColor="#0b121d"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Fill">
 
-            <Grid ColumnDefinitions ="50, 140*">
-                <Button x:Name="backButton"
-                        BackgroundColor="Transparent"
-                        Clicked="backButton_Clicked"
-                        FontFamily="PressStart">
+            <Grid ColumnDefinitions="50, 140*">
+                <Button
+                    x:Name="backButton"
+                    BackgroundColor="Transparent"
+                    Clicked="backButton_Clicked"
+                    FontFamily="PressStart">
                     <Button.ImageSource>
-                        <FontImageSource FontFamily="AWF"
-                                         Glyph="&#xf0a8;"
-                                         Size="30"
-                                         Color="#b2bbcb">
-                        </FontImageSource>
+                        <FontImageSource
+                            FontFamily="AWF"
+                            Glyph="&#xf0a8;"
+                            Size="30"
+                            Color="#b2bbcb" />
                     </Button.ImageSource>
                 </Button>
                 <Button
@@ -34,64 +37,64 @@
                     HeightRequest="30"
                     HorizontalOptions="EndAndExpand"
                     Text="O.00 Buff"
-                    TextColor="#FFFFFF"
-                    WidthRequest="140" />
+                    TextColor="#FFFFFF" />
             </Grid>
-            <Label Margin="30"
-                   FontFamily="PressStart"
-                   FontSize="16"
-                   HorizontalOptions="Center"
-                   Text="LuckyDraw"
-                   TextColor="White"/>
+            <Label
+                Margin="30"
+                FontFamily="PressStart"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="LuckyDraw"
+                TextColor="White" />
 
 
-            <Button x:Name="drawButton"
-                        Clicked="drawButton_Clicked"
-                        FontFamily="PressStart"
-                        FontSize="18"
-                        HorizontalOptions="CenterAndExpand" 
-                        Text="Draw"
-                        WidthRequest="160"
-                        HeightRequest="60"
-                    CornerRadius="5"
-                    BorderWidth="1.5"
-                    Background="Red"
-                    BorderColor="Black">
-
-            </Button>
+            <Button
+                x:Name="drawButton"
+                Background="Red"
+                BorderColor="Black"
+                BorderWidth="1.5"
+                Clicked="drawButton_Clicked"
+                CornerRadius="5"
+                FontFamily="PressStart"
+                FontSize="18"
+                HeightRequest="60"
+                HorizontalOptions="CenterAndExpand"
+                Text="Draw"
+                WidthRequest="160" />
             <Frame
                 Margin="20,30,20,20"
                 BackgroundColor="#222222"
                 BorderColor="White"
                 CornerRadius="5">
                 <Grid ColumnDefinitions="260,auto" RowDefinitions="100,3">
-                    <Label Text="Item you got"
-                           FontSize="12"
-                           TextColor="White"
-                           FontFamily="PressStart"
-                           HorizontalOptions="Center"
-                           />
-                    <Frame Margin="20,30,20,20"
-                           BackgroundColor="Azure"
-                           BorderColor="White"
-                           CornerRadius="5">
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        HorizontalOptions="Center"
+                        Text="Item you got"
+                        TextColor="White" />
+                    <Frame
+                        Margin="20,30,20,20"
+                        BackgroundColor="Azure"
+                        BorderColor="White"
+                        CornerRadius="5">
                         <Grid ColumnDefinitions="190,auto" RowDefinitions="100,auto">
-                            <Label x:Name="gotItem"
-                           
-                           FontSize="12"
-                           TextColor="Black"
-                           FontFamily="PressStart"
-                           HorizontalOptions="Center"
-                           />
+                            <Label
+                                x:Name="gotItem"
+                                FontFamily="PressStart"
+                                FontSize="12"
+                                HorizontalOptions="Center"
+                                TextColor="Black" />
                         </Grid>
                     </Frame>
                 </Grid>
             </Frame>
-            <Label x:Name="limitDraw"
-                   FontSize="12"
-                   TextColor="White"
-                   FontFamily="PressStart"
-                   HorizontalOptions="Center"/>
+            <Label
+                x:Name="limitDraw"
+                FontFamily="PressStart"
+                FontSize="12"
+                HorizontalOptions="Center"
+                TextColor="White" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

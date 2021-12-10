@@ -13,7 +13,7 @@ using System.ComponentModel;
 namespace buff_ject.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class FightPage : ContentPage
     {
 
         public int UserStr;
@@ -30,7 +30,7 @@ namespace buff_ject.Views
 
         public List<string> ranList = new List<string>();
         static Random rnd = new Random();
-        public Page1()
+        public FightPage()
         {
             InitializeComponent();
             addList();

@@ -54,7 +54,13 @@ namespace buff_ject
 
         private async void Fight_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Page1());
+            await Navigation.PushAsync(new FightPage());
+        }
+
+        private async void Logout_Clicked(object sender, EventArgs e)
+        {
+
+            await Navigation.PushAsync(new LoginPage());
         }
     }
 }

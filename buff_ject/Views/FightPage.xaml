@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="buff_ject.Views.FightPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="20"
+            BackgroundColor="#0b121d"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Fill">
+
+            <Grid ColumnDefinitions="50, 140*">
+                <Button
+                    x:Name="backButton"
+                    BackgroundColor="Transparent"
+                    Clicked="backButton_Clicked"
+                    FontFamily="PressStart">
+                    <Button.ImageSource>
+                        <FontImageSource
+                            FontFamily="AWF"
+                            Glyph="&#xf0a8;"
+                            Size="30"
+                            Color="#b2bbcb" />
+                    </Button.ImageSource>
+                </Button>
+                <Button
+                    x:Name="overallStat"
+                    Grid.Column="1"
+                    BackgroundColor="#eab410"
+                    BorderColor="#EAB410"
+                    BorderWidth="1.5"
+                    CornerRadius="50"
+                    FontFamily="PressStart"
+                    FontSize="12"
+                    HeightRequest="30"
+                    HorizontalOptions="EndAndExpand"
+                    Text="0"
+                    TextColor="#FFFFFF" />
+            </Grid>
+            <Label
+                x:Name="nameBoss"
+                Margin="30"
+                FontFamily="PressStart"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="The Warwick"
+                TextColor="White" />
+
+            <Label
+                x:Name="healthBoss"
+                FontFamily="PressStart"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="97%"
+                TextColor="White" />
+            <StackLayout
+                Padding="15"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="StartAndExpand">
+                <Frame
+                    BackgroundColor="Transparent"
+                    CornerRadius="100"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True">
+                    <Image
+                        x:Name="BossPic"
+                        Aspect="Fill"
+                        HeightRequest="150"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        WidthRequest="200" />
+
+                </Frame>
+                <Button
+                    x:Name="attackButton"
+                    Background="Red"
+                    BorderColor="Black"
+                    BorderWidth="1.5"
+                    Clicked="attackButton_Clicked"
+                    CornerRadius="5"
+                    FontFamily="PressStart"
+                    FontSize="18"
+                    HeightRequest="60"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Attack"
+                    WidthRequest="300" />
+                <Button
+                    x:Name="getTurnTime"
+                    Background="Green"
+                    BorderColor="Black"
+                    BorderWidth="1.5"
+                    Clicked="getTurnTime_Clicked"
+                    CornerRadius="5"
+                    FontFamily="PressStart"
+                    FontSize="18"
+                    HeightRequest="60"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Get More Turn"
+                    WidthRequest="300" />
+                <Label
+                    x:Name="limit"
+                    Margin="30"
+                    FontFamily="PressStart"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="5 Turn left"
+                    TextColor="White" />
+            </StackLayout>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

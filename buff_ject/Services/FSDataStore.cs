@@ -46,6 +46,7 @@ namespace buff_ject.Services
               .Child("Items") //ดึงข้อมูลทั้งหมดจาก Firebase มา
               .OnceAsync<Profile>()).Select(item => new Profile //สร้างรายการ Object
               {
+                  Id = item.Object.Id, 
                   Username = item.Object.Username,
                   Password = item.Object.Password,
                   Email = item.Object.Email,
@@ -67,7 +68,7 @@ namespace buff_ject.Services
             var toUpdateProfile = (await firebase
               .Child("Items")
               .OnceAsync<Profile>())
-              .Where(a => a.Object.Username == item.Username)
+              .Where(a => a.Object.Id == item.Id)
               .FirstOrDefault();
 
             await firebase

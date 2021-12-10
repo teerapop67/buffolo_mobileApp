@@ -38,9 +38,9 @@ namespace buff_ject.Views
                 ItemImage = "Diamond_Sword.png",
                 ItemName = "Diamond Sword",
                 ItemPrice = "150 buff",
-                Agi = 20,
+                Agi = 120,
                 Str = 50,
-                Vit = 10,
+                Vit = 20,
                 Username = LoginPage.SetUsername
                 
             });
@@ -51,8 +51,8 @@ namespace buff_ject.Views
                 ItemName = "Wood Bow",
                 ItemPrice = "85 buff",
                 Agi = 20,
-                Str = 50,
-                Vit = 10,
+                Str = 80,
+                Vit = 70,
                 Username = LoginPage.SetUsername
             });
 
@@ -73,8 +73,8 @@ namespace buff_ject.Views
                 ItemName = "Wood Shield",
                 ItemPrice = "50 buff",
                 Agi = 20,
-                Str = 50,
-                Vit = 10,
+                Str = 100,
+                Vit = 80,
                 Username = LoginPage.SetUsername
             });
 
@@ -83,9 +83,9 @@ namespace buff_ject.Views
                 ItemImage = "Diamondarmor.png",
                 ItemName = "Diamond Armor",
                 ItemPrice = "200 buff",
-                Agi = 20,
-                Str = 50,
-                Vit = 10,
+                Agi = 120,
+                Str = 25,
+                Vit = 12,
                 Username = LoginPage.SetUsername
             });
 
@@ -96,7 +96,7 @@ namespace buff_ject.Views
                 ItemPrice = "65 buff",
                 Agi = 20,
                 Str = 50,
-                Vit = 10,
+                Vit = 90,
                 Username = LoginPage.SetUsername
             });
 
@@ -105,8 +105,8 @@ namespace buff_ject.Views
                 ItemImage = "RedDiamondSword.png",
                 ItemName = "Red Diamond Sword",
                 ItemPrice = "250 buff",
-                Agi = 20,
-                Str = 50,
+                Agi = 80,
+                Str = 30,
                 Vit = 10,
                 Username = LoginPage.SetUsername
             });

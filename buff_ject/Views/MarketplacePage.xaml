@@ -37,8 +37,7 @@
                     HeightRequest="30"
                     HorizontalOptions="EndAndExpand"
                     Text="O.00 Buff"
-                    TextColor="#FFFFFF"
-                    WidthRequest="140" />
+                    TextColor="#FFFFFF" />
             </Grid>
             <Label
                 Margin="30"

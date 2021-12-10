@@ -1,38 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="buff_ject.Views.RegisterPage"
+    x:Class="buff_ject.Views.EditProfilePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     NavigationPage.HasNavigationBar="false">
     <ContentPage.Content>
-        <StackLayout Padding="40" BackgroundColor="#0b121d">
+        <StackLayout
+            Padding="30,20,30,20"
+            BackgroundColor="#0b121d"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Fill">
+            <Button
+                x:Name="backButton"
+                Margin="0,20,0,0"
+                BackgroundColor="Transparent"
+                Clicked="backButton_Clicked"
+                FontFamily="PressStart"
+                HorizontalOptions="Start">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="AWF"
+                        Glyph="&#xf0a8;"
+                        Size="30"
+                        Color="#b2bbcb" />
+                </Button.ImageSource>
+            </Button>
+
             <Label
+                Margin="0,50,0,0"
                 FontFamily="PressStart"
                 FontSize="16"
                 HorizontalOptions="Center"
-                Text="Register"
+                Text="Edit Profile"
                 TextColor="#fff" />
-            <Frame Margin="20" BackgroundColor="#0b121d">
-                <Image
-                    HeightRequest="150"
-                    Source="logo.png"
-                    WidthRequest="150" />
-            </Frame>
             <Frame
-                Margin="10,15,10,15"
+                Margin="10,50,10,15"
                 Padding="5"
                 Background="#333333"
                 CornerRadius="12">
                 <Entry
-                    x:Name="usernameRegis"
+                    x:Name="editUser"
                     Background="#333333"
                     CharacterSpacing="2"
                     FontFamily="PressStart"
                     FontSize="12"
                     HorizontalTextAlignment="Center"
-                    Placeholder="Enter Username"
                     PlaceholderColor="#B2BBCB"
-                    Text="{Binding Username, Mode=TwoWay}"
                     TextColor="#fff" />
             </Frame>
 
@@ -42,16 +55,14 @@
                 Background="#333333"
                 CornerRadius="12">
                 <Entry
-                    x:Name="passwordRegis"
+                    x:Name="editPass"
                     Background="#333333"
                     CharacterSpacing="2"
                     ClearButtonVisibility="WhileEditing"
                     FontFamily="PressStart"
                     FontSize="12"
                     HorizontalTextAlignment="Center"
-                    Placeholder="Enter Password"
                     PlaceholderColor="#B2BBCB"
-                    Text="{Binding Password, Mode=TwoWay}"
                     TextColor="#fff" />
             </Frame>
 
@@ -61,47 +72,31 @@
                 Background="#333333"
                 CornerRadius="12">
                 <Entry
-                    x:Name="emailRegis"
+                    x:Name="editEmail"
                     Background="#333333"
                     CharacterSpacing="2"
                     ClearButtonVisibility="WhileEditing"
                     FontFamily="PressStart"
                     FontSize="12"
                     HorizontalTextAlignment="Center"
-                    Placeholder="Enter Email"
                     PlaceholderColor="#B2BBCB"
-                    Text="{Binding Email, Mode=TwoWay}"
                     TextColor="#fff" />
             </Frame>
-
-
-
 
             <Button
-                x:Name="Registers"
-                Margin="50,10,30,50"
+                x:Name="edit"
+                Margin="50,50,50,10"
                 Background="transparent"
                 BorderColor="#EAB410"
                 BorderWidth="1"
-                Clicked="Registers_Clicked"
+                Clicked="edit_Clicked"
                 CornerRadius="20"
                 FontFamily="PressStart"
                 FontSize="12"
                 HorizontalOptions="Center"
-                Text="Register"
+                Text="Edit"
                 TextColor="#fff"
                 WidthRequest="150" />
-            <Button
-                BackgroundColor="Transparent"
-                Clicked="Button_Clicked"
-                CornerRadius="36"
-                FontFamily="PressStart"
-                FontSize="12"
-                Text="Go Back"
-                TextColor="#fff" />
-
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -101,6 +101,7 @@ namespace buff_ject.Views
                 };
                 LoginPage.SetTotalPower = UpdateProfile.AgiUser + UpdateProfile.StrUser + UpdateProfile.VitUser;
                 LoginPage.SetBuffCoins = UpdateProfile.BuffCoin;
+                LoginPage.SetEmail = UpdateProfile.Email;
                 await BaseViewModel.DataStore.UpdateItemAsync(UpdateProfile);
                 await Navigation.PushAsync(new MenuPage());
             }

@@ -31,8 +31,7 @@
                 FontSize="12"
                 HeightRequest="30"
                 HorizontalOptions="EndAndExpand"
-                TextColor="#FFFFFF"
-                WidthRequest="140" />
+                TextColor="#FFFFFF" />
         </Grid>
 
         <Grid
@@ -185,6 +184,15 @@
 
 
         </Grid>
+        <Button
+            x:Name="Logout"
+            BackgroundColor="Transparent"
+            Clicked="Logout_Clicked"
+            CornerRadius="36"
+            FontFamily="PressStart"
+            FontSize="12"
+            Text="Logout"
+            TextColor="#fff" />
 
     </StackLayout>
 
