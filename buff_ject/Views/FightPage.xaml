@@ -41,7 +41,7 @@
             </Grid>
             <Label
                 x:Name="nameBoss"
-                Margin="30"
+                Margin="0,30,0,0"
                 FontFamily="PressStart"
                 FontSize="16"
                 HorizontalOptions="Center"
@@ -115,8 +115,7 @@
                     FontSize="16"
                     HorizontalOptions="Center"
                     Text="Total score"
-                    TextColor="White" 
-                    />
+                    TextColor="White" />
             </StackLayout>
 
         </StackLayout>
