@@ -41,7 +41,7 @@ namespace buff_ject.Views
             ProfileUrl.Source = Getprofile.CharactorURL;
             UserProfile.Text = Getprofile.Username;
             CoinProfile.Text = Getprofile.BuffCoin.ToString();
-            
+            Combatscore.Text = Getprofile.score.ToString();
             AgiProfile.Text = Getprofile.AgiUser.ToString();
             StrProfile.Text = Getprofile.StrUser.ToString();
             VitProfile.Text = Getprofile.VitUser.ToString();
@@ -147,7 +147,8 @@ namespace buff_ject.Views
                     Email = Getprofile.Email,
                     Id = Getprofile.Id,
                     turnTime = Getprofile.turnTime,
-                    drawTime = Getprofile.drawTime
+                    drawTime = Getprofile.drawTime,
+                    score = Getprofile.score,   
                 };
 
                 Collections.Remove(itemSelected);
@@ -159,6 +160,7 @@ namespace buff_ject.Views
                 StrProfile.Text = UpdateProfile.StrUser.ToString();
                 VitProfile.Text = UpdateProfile.VitUser.ToString();
                 CoinProfile.Text = LoginPage.SetBuffCoins.ToString();
+                Combatscore.Text = UpdateProfile.score.ToString();
                 await BaseViewModel.DataStore.UpdateItemAsync(UpdateProfile);
                 await BaseViewModel.DataStoreCollect.DeleteItemAsyncCollec(itemSelected.ItemName);
 

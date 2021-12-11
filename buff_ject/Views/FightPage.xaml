@@ -107,6 +107,16 @@
                     HorizontalOptions="Center"
                     Text="5 Turn left"
                     TextColor="White" />
+
+                <Label
+                    x:Name="score"
+                    Margin="30"
+                    FontFamily="PressStart"
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    Text="Total score"
+                    TextColor="White" 
+                    />
             </StackLayout>
 
         </StackLayout>

@@ -19,5 +19,6 @@ namespace buff_ject.Models
         public string ProfileURL { get; set; }
         public int drawTime { get; set; }
         public int turnTime { get; set; }
+        public int score { get; set; }
     }
 }

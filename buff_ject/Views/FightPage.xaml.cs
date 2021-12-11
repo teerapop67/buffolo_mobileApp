@@ -19,6 +19,7 @@ namespace buff_ject.Views
         public int UserStr;
         public int UserAgi;
         public int UserVit;
+        public int UserScore;
 
         public string BossName;
         public int BossHp;
@@ -52,6 +53,7 @@ namespace buff_ject.Views
             UserAgi = GetProfile.AgiUser;
             UserVit = GetProfile.VitUser;
             TurnLimit = GetProfile.turnTime;
+            UserScore = GetProfile.score;
             // Boss Section
             pulling();
 
@@ -59,7 +61,7 @@ namespace buff_ject.Views
             overall = UserAgi + UserVit + UserStr;
             buff.Text = $"{LoginPage.SetBuffCoins} BUFF";
             limit.Text = TurnLimit.ToString() + " Turn Left";
-
+            score.Text = "Total cb: " + UserScore.ToString();
             // Placing data
             //nameBoss.Text = BossName;
             //healthBoss.Text = BossHp.ToString();
@@ -84,70 +86,104 @@ namespace buff_ject.Views
             TurnLimit = GetProfile.turnTime;
             int r = rnd.Next(ranList.Count);
             int damageSet = overall;
-            
-            if (TurnLimit > 0)
+
+            if (BossHp > 0)
             {
-                TurnLimit = TurnLimit - 1;
-
-                limit.Text = TurnLimit.ToString() + " Turn Left";
-
-                Profile UpdateDraw = new Profile()
+                if (TurnLimit > 0)
                 {
-                    Username = GetProfile.Username,
-                    CharactorURL = GetProfile.CharactorURL,
-                    NameCharactor = GetProfile.NameCharactor,
-                    Password = GetProfile.Password,
-                    StrUser = GetProfile.StrUser,
-                    AgiUser = GetProfile.AgiUser,
-                    VitUser = GetProfile.VitUser,
-                    BuffCoin = LoginPage.SetBuffCoins,
-                    Email = GetProfile.Email,
-                    Id = GetProfile.Id,
-                    drawTime = GetProfile.drawTime,
-                    turnTime = TurnLimit
-                };
-                await BaseViewModel.DataStore.UpdateItemAsync(UpdateDraw);
+                    TurnLimit = TurnLimit - 1;
 
-                if (ranList[r] == "Crit")
-                {
-                    damageSet = overall * 2;
-                    BossHp = BossHp - damageSet;
-
-                    RaidBoss update = new RaidBoss()
-                    {
-                        NameBoss = BossName,
-                        HpBoss = BossHp,
-                        ImageBoss = BossUrl,
-                    };
-
-                    var UpdateBoss = await BaseViewModel.DataStoreRaidBoss.UpdateItemAsyncCollec(update);
-                    pulling();
-                    //limit.Text = TurnLimit.ToString() + " Turn Left";
-
-                }
-                else if (ranList[r] == "Miss")
-                {
-                    await DisplayAlert("Attack alert", "Miss", "Try again!!");
                     limit.Text = TurnLimit.ToString() + " Turn Left";
-                }
-                else if (ranList[r] == "Normal")
-                {
-                    BossHp = BossHp - damageSet;
 
-                    RaidBoss update = new RaidBoss()
+                    if (ranList[r] == "Crit")
                     {
-                        NameBoss = BossName,
-                        HpBoss = BossHp,
-                        ImageBoss = BossUrl,
-                    };
-                    var UpdateBoss = await BaseViewModel.DataStoreRaidBoss.UpdateItemAsyncCollec(update);
-                    pulling();
-                    //limit.Text = TurnLimit.ToString() + " Turn Left";
+                        damageSet = overall * 2;
+                        
+                        BossHp = BossHp - damageSet;
+                        if (BossHp < 0)
+                        {
+                            BossHp = 0;
+                        }
+                        RaidBoss update = new RaidBoss()
+                        {
+                            NameBoss = BossName,
+                            HpBoss = BossHp,
+                            ImageBoss = BossUrl,
+                        };
+
+                        Profile UpdateDraw = new Profile()
+                        {
+                            Username = GetProfile.Username,
+                            CharactorURL = GetProfile.CharactorURL,
+                            NameCharactor = GetProfile.NameCharactor,
+                            Password = GetProfile.Password,
+                            StrUser = GetProfile.StrUser,
+                            AgiUser = GetProfile.AgiUser,
+                            VitUser = GetProfile.VitUser,
+                            BuffCoin = LoginPage.SetBuffCoins,
+                            Email = GetProfile.Email,
+                            Id = GetProfile.Id,
+                            drawTime = GetProfile.drawTime,
+                            turnTime = TurnLimit,
+                            score = GetProfile.score + damageSet
+                        };
+                        await BaseViewModel.DataStore.UpdateItemAsync(UpdateDraw);
+
+                        score.Text = "Total cb: " + UpdateDraw.score.ToString();
+                        var UpdateBoss = await BaseViewModel.DataStoreRaidBoss.UpdateItemAsyncCollec(update);
+                        pulling();
+                        //limit.Text = TurnLimit.ToString() + " Turn Left";
+
+                    }
+                    else if (ranList[r] == "Miss")
+                    {
+                        await DisplayAlert("Attack alert", "Miss", "Try again!!");
+                        limit.Text = TurnLimit.ToString() + " Turn Left";
+                    }
+                    else if (ranList[r] == "Normal")
+                    {
+                        BossHp = BossHp - damageSet;
+                        if (BossHp < 0)
+                        {
+                            BossHp = 0;
+                        }
+                        RaidBoss update = new RaidBoss()
+                        {
+                            NameBoss = BossName,
+                            HpBoss = BossHp,
+                            ImageBoss = BossUrl,
+                        };
+                        Profile UpdateDraw = new Profile()
+                        {
+                            Username = GetProfile.Username,
+                            CharactorURL = GetProfile.CharactorURL,
+                            NameCharactor = GetProfile.NameCharactor,
+                            Password = GetProfile.Password,
+                            StrUser = GetProfile.StrUser,
+                            AgiUser = GetProfile.AgiUser,
+                            VitUser = GetProfile.VitUser,
+                            BuffCoin = LoginPage.SetBuffCoins,
+                            Email = GetProfile.Email,
+                            Id = GetProfile.Id,
+                            drawTime = GetProfile.drawTime,
+                            turnTime = TurnLimit,
+                            score = GetProfile.score + damageSet
+                        };
+                        await BaseViewModel.DataStore.UpdateItemAsync(UpdateDraw);
+                        score.Text = "Total cb: " + UpdateDraw.score.ToString();
+                        var UpdateBoss = await BaseViewModel.DataStoreRaidBoss.UpdateItemAsyncCollec(update);
+                        pulling();
+                        //limit.Text = TurnLimit.ToString() + " Turn Left";
+                    }
+                }
+                else
+                {
+                    return;
                 }
             }
             else
             {
-                return;
+                await DisplayAlert("Raid Status", "Boss has been eliminated. Wait for update and reward.", "OK");
             }
 
         }
@@ -157,7 +193,7 @@ namespace buff_ject.Views
             BossName = GetBoss.NameBoss;
             BossHp = GetBoss.HpBoss;
             BossUrl = GetBoss.ImageBoss;
-
+            
             nameBoss.Text = BossName;
             healthBoss.Text = BossHp.ToString();
             BossPic.Source = BossUrl;
@@ -185,7 +221,8 @@ namespace buff_ject.Views
                     Email = Getprofile.Email,
                     Id = Getprofile.Id,
                     drawTime = Getprofile.drawTime,
-                    turnTime = Getprofile.turnTime + 1
+                    turnTime = Getprofile.turnTime + 1,
+                    score = Getprofile.score,
                 };
                 buff.Text = $"{LoginPage.SetBuffCoins} BUFF";
                 limit.Text = UpdateDraw.turnTime.ToString() + " Draw Left";
@@ -199,7 +236,20 @@ namespace buff_ject.Views
         }
 
         // Get more turn button
-
+        
+        async void checkdied()
+        {
+            var getBoss = await BaseViewModel.DataStoreRaidBoss.GetItemAsyncCollec("Warwick");
+            if (getBoss.HpBoss > 0)
+            {
+                return;
+            }
+            else
+            {
+                await DisplayAlert("Raid Status", "Boss has been eliminated. Wait for update and reward.", "OK");
+            }
+                    
+        }
 
     }
 }

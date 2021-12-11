@@ -148,6 +148,17 @@
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
+                    <Label
+                        FontFamily="PressStart"
+                        FontSize="12"
+                        TextColor="#FFFFFF">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Combat score : " />
+                                <Span x:Name="Combatscore" Text="150" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </StackLayout>
 
                 <Label
