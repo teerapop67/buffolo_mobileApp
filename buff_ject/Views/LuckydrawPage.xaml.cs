@@ -124,20 +124,20 @@ namespace buff_ject.Views
         }
         private void addList()
         {
-            ranList.Add("SaltZa");
-            ranList.Add("SaltWow");
-            ranList.Add("SaltOmg");
-            ranList.Add("SaltJesus");
-            ranList.Add("SaltYourMom !");
-            ranList.Add("SaltNani !!");
-            ranList.Add("SaltOhMyFkingGOd");
-            ranList.Add("SaltWTF");
-            ranList.Add("SaltOHbubu");
-            ranList.Add("Saltอะแหน่อะเหนะ");
-            ranList.Add("Saltอ้าวๆ");
-            ranList.Add("Saltไปดี๊");
-            ranList.Add("Saltอีกแล้วเหรอครัชช");
-            ranList.Add("Saltแน่นอนครับ");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
+            ranList.Add("Salt");
             ranList.Add("10");
             ranList.Add("10");
             ranList.Add("10");
@@ -148,6 +148,41 @@ namespace buff_ject.Views
             ranList.Add("100");
             ranList.Add("15");
             ranList.Add("1");
+        }
+
+        private async void getTurnTime_Clicked(object sender, EventArgs e)
+        {
+            var Getprofile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
+            //int currentBuff = Getprofile.BuffCoin;
+            LoginPage.SetBuffCoins = Getprofile.BuffCoin;
+            if (LoginPage.SetBuffCoins >= 5)
+            {
+                LoginPage.SetBuffCoins -= 5;
+                Profile UpdateDraw = new Profile()
+                {
+                    Username = Getprofile.Username,
+                    CharactorURL = Getprofile.CharactorURL,
+                    NameCharactor = Getprofile.NameCharactor,
+                    Password = Getprofile.Password,
+                    StrUser = Getprofile.StrUser,
+                    AgiUser = Getprofile.AgiUser,
+                    VitUser = Getprofile.VitUser,
+                    BuffCoin = LoginPage.SetBuffCoins,
+                    Email = Getprofile.Email,
+                    Id = Getprofile.Id,
+                    drawTime = Getprofile.drawTime + 1,
+                    turnTime = Getprofile.turnTime
+                };
+                totalCoin.Text = $"{LoginPage.SetBuffCoins} BUFF";
+                limitDraw.Text = UpdateDraw.drawTime.ToString() + " Draw Left";
+                await BaseViewModel.DataStore.UpdateItemAsync(UpdateDraw);
+
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Need 5 coin", "OK");
+            }
+
         }
     }
 }

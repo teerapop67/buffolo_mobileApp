@@ -60,7 +60,20 @@
                 HeightRequest="60"
                 HorizontalOptions="CenterAndExpand"
                 Text="Draw"
-                WidthRequest="160" />
+                WidthRequest="300" />
+            <Button
+                    x:Name="getTurnTime"
+                    Background="Green"
+                    BorderColor="Black"
+                    BorderWidth="1.5"
+                    Clicked="getTurnTime_Clicked"   
+                    CornerRadius="5"
+                    FontFamily="PressStart"
+                    FontSize="18"
+                    HeightRequest="60"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Get More Turn"
+                    WidthRequest="300" />
             <Frame
                 Margin="20,30,20,20"
                 BackgroundColor="#222222"

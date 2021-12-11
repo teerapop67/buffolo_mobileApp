@@ -57,7 +57,7 @@ namespace buff_ject.Views
 
             // Replace later
             overall = UserAgi + UserVit + UserStr;
-            overallStat.Text = overall.ToString();
+            buff.Text = $"{LoginPage.SetBuffCoins} BUFF";
             limit.Text = TurnLimit.ToString() + " Turn Left";
 
             // Placing data
@@ -164,9 +164,38 @@ namespace buff_ject.Views
 
 
         }
-        private void getTurnTime_Clicked(object sender, EventArgs e)
+        private async void getTurnTime_Clicked(object sender, EventArgs e)
         {
+            var Getprofile = await BaseViewModel.DataStore.GetItemAsync(LoginPage.SetUsername);
+            //int currentBuff = Getprofile.BuffCoin;
+            LoginPage.SetBuffCoins = Getprofile.BuffCoin;
+            if (LoginPage.SetBuffCoins >= 5)
+            {
+                LoginPage.SetBuffCoins -= 5;
+                Profile UpdateDraw = new Profile()
+                {
+                    Username = Getprofile.Username,
+                    CharactorURL = Getprofile.CharactorURL,
+                    NameCharactor = Getprofile.NameCharactor,
+                    Password = Getprofile.Password,
+                    StrUser = Getprofile.StrUser,
+                    AgiUser = Getprofile.AgiUser,
+                    VitUser = Getprofile.VitUser,
+                    BuffCoin = LoginPage.SetBuffCoins,
+                    Email = Getprofile.Email,
+                    Id = Getprofile.Id,
+                    drawTime = Getprofile.drawTime,
+                    turnTime = Getprofile.turnTime + 1
+                };
+                buff.Text = $"{LoginPage.SetBuffCoins} BUFF";
+                limit.Text = UpdateDraw.turnTime.ToString() + " Draw Left";
+                await BaseViewModel.DataStore.UpdateItemAsync(UpdateDraw);
 
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Need 5 coin", "OK");
+            }
         }
 
         // Get more turn button
