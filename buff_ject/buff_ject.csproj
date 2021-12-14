@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="atk.mp3" />
     <None Remove="Fonts\FontAwesome5BrandsRegular400.otf" />
     <None Remove="Fonts\FontAwesome5FreeRegular400.otf" />
     <None Remove="Fonts\FontAwesome5FreeSolid900.otf" />
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="atk.mp3" />
     <EmbeddedResource Include="Fonts\FontAwesome5BrandsRegular400.otf" />
     <EmbeddedResource Include="Fonts\FontAwesome5FreeRegular400.otf" />
     <EmbeddedResource Include="Fonts\FontAwesome5FreeSolid900.otf" />
@@ -34,6 +36,7 @@
 
   <ItemGroup>
     <PackageReference Include="FirebaseDatabase.net" Version="4.0.6" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.5.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>

@@ -9,6 +9,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Timers;
 using System.ComponentModel;
+using System.IO;
+using System.Reflection;
 
 namespace buff_ject.Views
 {
@@ -37,6 +39,13 @@ namespace buff_ject.Views
             addList();
             BindingContext = this;
             
+        }
+
+        Stream GetStreamFile(string filename)
+        {
+            var assembly = typeof(App).GetTypeInfo().Assembly;
+            var stream = assembly.GetManifestResourceStream("buff_ject."+filename);
+            return stream;
         }
         void addList()
         {
@@ -87,6 +96,11 @@ namespace buff_ject.Views
             int r = rnd.Next(ranList.Count);
             int damageSet = overall;
 
+            var stream = GetStreamFile("atk.mp3");
+            var audio = Plugin.SimpleAudioPlayer.CrossSimpleAudioPlayer.Current;
+            audio.Load(stream);
+            audio.Play();
+
             if (BossHp > 0)
             {
                 if (TurnLimit > 0)
@@ -132,12 +146,33 @@ namespace buff_ject.Views
                         score.Text = "Total cb: " + UpdateDraw.score.ToString();
                         var UpdateBoss = await BaseViewModel.DataStoreRaidBoss.UpdateItemAsyncCollec(update);
                         pulling();
+                        animation();
                         //limit.Text = TurnLimit.ToString() + " Turn Left";
 
                     }
                     else if (ranList[r] == "Miss")
                     {
                         await DisplayAlert("Attack alert", "Miss", "Try again!!");
+                        Profile UpdateDraw = new Profile()
+                        {
+                            Username = GetProfile.Username,
+                            CharactorURL = GetProfile.CharactorURL,
+                            NameCharactor = GetProfile.NameCharactor,
+                            Password = GetProfile.Password,
+                            StrUser = GetProfile.StrUser,
+                            AgiUser = GetProfile.AgiUser,
+                            VitUser = GetProfile.VitUser,
+                            BuffCoin = LoginPage.SetBuffCoins,
+                            Email = GetProfile.Email,
+                            Id = GetProfile.Id,
+                            drawTime = GetProfile.drawTime,
+                            turnTime = TurnLimit,
+                            score = GetProfile.score
+                        };
+                        await BaseViewModel.DataStore.UpdateItemAsync(UpdateDraw);
+
+                        score.Text = "Total cb: " + UpdateDraw.score.ToString();
+
                         limit.Text = TurnLimit.ToString() + " Turn Left";
                     }
                     else if (ranList[r] == "Normal")
@@ -170,9 +205,11 @@ namespace buff_ject.Views
                             score = GetProfile.score + damageSet
                         };
                         await BaseViewModel.DataStore.UpdateItemAsync(UpdateDraw);
+
                         score.Text = "Total cb: " + UpdateDraw.score.ToString();
                         var UpdateBoss = await BaseViewModel.DataStoreRaidBoss.UpdateItemAsyncCollec(update);
                         pulling();
+                        animation();
                         //limit.Text = TurnLimit.ToString() + " Turn Left";
                     }
                 }
@@ -251,5 +288,10 @@ namespace buff_ject.Views
                     
         }
 
+        async void animation()
+        {
+            BossPic.Opacity = 0;
+            await BossPic.FadeTo(4, 4000);
+        }
     }
 }
